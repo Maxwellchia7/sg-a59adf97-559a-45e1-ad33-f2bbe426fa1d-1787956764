@@ -315,3 +315,11 @@ export function searchProducts(query: string): Product[] {
     (p.reference && p.reference.toLowerCase().includes(lowerQuery))
   );
 }
+
+export function getProductById(id: string): Product | undefined {
+  return products.find(p => p.id === id);
+}
+
+export function getProductsByBrand(brand: string): Product[] {
+  return products.filter(p => p.brand.toLowerCase() === brand.toLowerCase());
+}

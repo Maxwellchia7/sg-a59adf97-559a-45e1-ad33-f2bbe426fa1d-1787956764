@@ -3,14 +3,15 @@ import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SEO } from "@/components/SEO";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { useCart } from "@/contexts/CartContext";
+import { products, filterProducts } from "@/lib/products";
 import { Button } from "@/components/ui/button";
+import { ShoppingBag, SlidersHorizontal } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { ShoppingBag } from "lucide-react";
-import { products } from "@/lib/products";
-import { useCart } from "@/contexts/CartContext";
 
 export default function ShopPage() {
   const { addToCart } = useCart();
