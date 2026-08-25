@@ -1,6 +1,6 @@
 ---
 title: Reference Site Foundation - Navigation & Announcement
-status: in_progress
+status: done
 priority: urgent
 type: feature
 tags: [navigation, foundation]

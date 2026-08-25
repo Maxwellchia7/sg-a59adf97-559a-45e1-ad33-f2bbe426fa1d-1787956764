@@ -1,9 +1,9 @@
 ---
 title: Homepage Sections 1-5 (Hero through Manufactures)
-status: todo
+status: in_progress
 priority: urgent
 type: feature
-tags: [homepage, hero]
+tags: [homepage]
 created_by: agent
 created_at: 2026-08-25T15:18:00Z
 position: 10
@@ -13,11 +13,11 @@ position: 10
 Sections: Hero with trust badges, Brand spotlights (Rolex/Patek/AP/Omega/Cartier descriptions + CTAs), Stats (354,840 watches/26 manufactures/90,567 reviews/5yr warranty), Manufactures grid (26 brands with counts).
 
 ## Checklist
-- [ ] Create Hero: "Fine watches, reserved from one desk" headline, 3 trust badges below
-- [ ] Create BrandSpotlights: 5 brand cards with descriptions + "Reserve" CTAs, image placeholders
-- [ ] Create StatsSection: 4 stat cards with large numbers + labels
-- [ ] Create ManufacturesGrid: 26 brand cards with watch counts (Rolex 50,147 / Patek 19,688 / etc.), brand logo placeholders
-- [ ] Update index.tsx: add all sections in correct order
+- [x] Create Hero: "Fine watches, reserved from one desk", 3 trust badges, image placeholder
+- [x] Create BrandSpotlights: 5 brands (Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier) with descriptions, alternating layout
+- [x] Create StatsSection: 354,840 watches / 26 manufactures / 90,567 reviews / 5yr warranty
+- [x] Create ManufacturesGrid: 26 brand cards with watch counts
+- [x] All image placeholders clearly labeled with upload paths
 
 ## Acceptance
 - Hero displays with correct headline and trust badges

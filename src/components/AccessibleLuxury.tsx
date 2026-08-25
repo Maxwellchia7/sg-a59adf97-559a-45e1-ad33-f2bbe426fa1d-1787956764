@@ -4,80 +4,71 @@ import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { ImagePlaceholder, getPlaceholderPath } from "@/lib/imagePlaceholder";
 
-const newProducts = [
+const deals = [
   {
-    id: "new-1",
-    name: "Submariner Date",
+    id: "deal-1",
+    name: "GMT-Master II",
     brand: "Rolex",
-    price: 14500,
-    reference: "116610LN",
-    imagePath: "product-rolex-submariner-116610ln.jpg",
+    price: 18500,
+    originalPrice: 21000,
+    reference: "116710LN",
+    imagePath: "product-rolex-gmt.jpg",
   },
   {
-    id: "new-2",
-    name: "Royal Oak Chronograph",
-    brand: "Audemars Piguet",
-    price: 52000,
-    reference: "26331ST.OO.1220ST.03",
-    imagePath: "product-ap-royaloak-chrono.jpg",
-  },
-  {
-    id: "new-3",
-    name: "Speedmaster Moonwatch",
+    id: "deal-2",
+    name: "Seamaster Planet Ocean",
     brand: "Omega",
-    price: 6200,
-    reference: "311.30.42.30.01.005",
-    imagePath: "product-omega-speedmaster.jpg",
+    price: 4200,
+    originalPrice: 5400,
+    reference: "232.30.42.21.01.003",
+    imagePath: "product-omega-planet-ocean.jpg",
   },
   {
-    id: "new-4",
-    name: "Tank Must",
-    brand: "Cartier",
-    price: 3800,
-    reference: "WSTA0041",
-    imagePath: "product-cartier-tank.jpg",
+    id: "deal-3",
+    name: "Portugieser Chronograph",
+    brand: "IWC",
+    price: 8900,
+    originalPrice: 11200,
+    reference: "IW371605",
+    imagePath: "product-iwc-portugieser.jpg",
   },
   {
-    id: "new-5",
-    name: "Aquanaut",
-    brand: "Patek Philippe",
-    price: 42000,
-    reference: "5167A-001",
-    imagePath: "product-patek-aquanaut.jpg",
-  },
-  {
-    id: "new-6",
-    name: "Seamaster Diver 300M",
-    brand: "Omega",
-    price: 5400,
-    reference: "210.30.42.20.01.001",
-    imagePath: "product-omega-seamaster.jpg",
+    id: "deal-4",
+    name: "Black Bay Fifty-Eight",
+    brand: "Tudor",
+    price: 3400,
+    originalPrice: 4100,
+    reference: "79030N",
+    imagePath: "product-tudor-bb58.jpg",
   },
 ];
 
-export function NewArrivals() {
+export function AccessibleLuxury() {
   const { addItem } = useCart();
 
   return (
-    <section className="py-24 bg-card">
+    <section className="py-24">
       <div className="container">
         <div className="flex items-center justify-between mb-12">
           <div>
-            <p className="text-sm text-primary mb-2 tracking-wider uppercase">From the atelier</p>
+            <p className="text-sm text-primary mb-2 tracking-wider uppercase">Accessible luxury</p>
             <h2 className="text-3xl md:text-4xl font-serif font-light text-accent">
-              New arrivals
+              Best deals
             </h2>
           </div>
-          <Link href="/new-arrivals">
-            <Button variant="outline">View all</Button>
+          <Link href="/best-deals">
+            <Button variant="outline">View all deals</Button>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newProducts.map((product) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {deals.map((product) => (
             <div key={product.id} className="group">
-              <Link href={`/products/${product.id}`} className="block mb-4">
+              <Link href={`/products/${product.id}`} className="block">
                 <div className="relative overflow-hidden rounded-lg aspect-square mb-4">
+                  <div className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                    Save ${(product.originalPrice - product.price).toLocaleString()}
+                  </div>
                   <ImagePlaceholder
                     src=""
                     alt={`${product.brand} ${product.name}`}
@@ -90,10 +81,14 @@ export function NewArrivals() {
                   {product.name}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-2">{product.brand}</p>
-                <p className="text-sm font-mono text-muted-foreground mb-2">{product.reference}</p>
-                <p className="text-xl font-serif text-primary">
-                  ${product.price.toLocaleString()}
-                </p>
+                <div className="flex items-center gap-2 mb-2">
+                  <p className="text-xl font-serif text-primary">
+                    ${product.price.toLocaleString()}
+                  </p>
+                  <p className="text-sm text-muted-foreground line-through">
+                    ${product.originalPrice.toLocaleString()}
+                  </p>
+                </div>
               </Link>
               <Button
                 variant="outline"
