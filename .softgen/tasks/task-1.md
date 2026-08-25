@@ -13,9 +13,9 @@ position: 1
 Foundation: color system, typography, globals.css configuration, navigation component, footer, WhatsApp floating button. Enables all subsequent pages.
 
 ## Checklist
-- [ ] Update globals.css: Cormorant Garamond + Inter fonts, dark luxury color system
-- [ ] Sync tailwind.config.ts with custom colors
-- [ ] Create Navigation: logo, Shop/Collections/About/Contact, search icon, cart icon, mobile menu
+- [x] Update globals.css: Cormorant Garamond + Inter fonts, dark luxury color system
+- [x] Sync tailwind.config.ts with custom colors
+- [x] Create Navigation: logo, Shop/Collections/About/Contact, search icon, cart icon, mobile menu
 - [ ] Create Footer: brand sections (Buy/The House/Help), copyright, WhatsApp contact
 - [ ] Create WhatsAppButton: floating button with +1 (646) 244-0064
 
