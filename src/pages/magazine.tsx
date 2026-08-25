@@ -1,116 +1,112 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { SEO } from "@/components/SEO";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { ImagePlaceholder, getPlaceholderPath } from "@/lib/imagePlaceholder";
+import { Clock } from "lucide-react";
 
 const articles = [
   {
-    id: "rolex-daytona-history",
-    title: "The Rolex Daytona: From Racing Tool to Cultural Icon",
-    excerpt: "How a chronograph designed for motorsport enthusiasts became one of the most coveted luxury watches in the world.",
-    category: "Heritage",
-    readTime: "8 min read",
-    imagePath: "magazine-daytona-article.jpg"
-  },
-  {
-    id: "patek-nautilus-design",
-    title: "Gerald Genta's Nautilus: The Watch That Redefined Luxury Sports",
-    excerpt: "Examining the revolutionary design philosophy behind Patek Philippe's most iconic modern timepiece.",
-    category: "Design",
-    readTime: "10 min read",
-    imagePath: "magazine-nautilus-article.jpg"
-  },
-  {
-    id: "collecting-vintage-omega",
-    title: "A Collector's Guide to Vintage Omega Speedmasters",
-    excerpt: "Understanding references, dials, and provenance when building a Speedmaster collection.",
-    category: "Collecting",
+    slug: "guide-to-rolex-submariner",
+    title: "The complete guide to Rolex Submariner collecting",
+    excerpt: "From vintage references to modern iterations, explore the evolution of the world's most iconic dive watch.",
+    image: "/magazine/submariner-guide.jpg",
+    category: "Guides",
     readTime: "12 min read",
-    imagePath: "magazine-speedmaster-article.jpg"
   },
   {
-    id: "ap-royal-oak-story",
-    title: "The Audacity of the Royal Oak: 1972 Revisited",
-    excerpt: "How Audemars Piguet's bold gamble created the luxury steel sports watch category.",
-    category: "Heritage",
-    readTime: "9 min read",
-    imagePath: "magazine-royaloak-article.jpg"
+    slug: "patek-philippe-investment",
+    title: "Why Patek Philippe watches hold their value",
+    excerpt: "Understanding the market dynamics that make certain complications and references investment-grade timepieces.",
+    image: "/magazine/patek-investment.jpg",
+    category: "Market insights",
+    readTime: "8 min read",
   },
   {
-    id: "mechanical-watchmaking",
-    title: "Inside the Manufacture: The Art of Mechanical Watchmaking",
-    excerpt: "A detailed look at the traditional crafts that bring haute horlogerie to life.",
-    category: "Craftsmanship",
+    slug: "authentication-process",
+    title: "Inside our authentication laboratory",
+    excerpt: "See how our master watchmakers verify authenticity through microscopic examination and technical analysis.",
+    image: "/magazine/authentication.jpg",
+    category: "Behind the scenes",
+    readTime: "10 min read",
+  },
+  {
+    slug: "audemars-piguet-royaloak-history",
+    title: "The Royal Oak revolution: 50 years of iconic design",
+    excerpt: "How Gérald Genta's revolutionary 1972 design changed luxury sports watches forever.",
+    image: "/magazine/royaloak-history.jpg",
+    category: "History",
     readTime: "15 min read",
-    imagePath: "magazine-manufacture-article.jpg"
   },
   {
-    id: "investment-watches-2024",
-    title: "Investment-Grade Timepieces: Market Insights for 2024",
-    excerpt: "Which references are holding value, appreciating, and worth considering for serious collectors.",
-    category: "Market",
-    readTime: "11 min read",
-    imagePath: "magazine-investment-article.jpg"
-  }
+    slug: "omega-moonwatch-legacy",
+    title: "From moon to wrist: The Speedmaster story",
+    excerpt: "The only watch certified for EVA by NASA, and why it remains relevant today.",
+    image: "/magazine/moonwatch-legacy.jpg",
+    category: "Heritage",
+    readTime: "10 min read",
+  },
+  {
+    slug: "collecting-vintage-watches",
+    title: "Starting a vintage watch collection: Expert advice",
+    excerpt: "What to look for, what to avoid, and how to build a meaningful collection.",
+    image: "/magazine/vintage-collecting.jpg",
+    category: "Guides",
+    readTime: "14 min read",
+  },
 ];
 
 export default function MagazinePage() {
   return (
     <>
-      <SEO 
-        title="Magazine - Maison Caldor"
-        description="Insights on horological heritage, collecting, design, and the art of fine watchmaking from Maison Caldor."
-      />
+      <SEO title="Magazine - Maison Caldor" description="Articles, guides, and insights from the world of luxury watchmaking" />
       <AnnouncementBar />
       <Navigation />
       <main className="min-h-screen py-24">
         <div className="container">
-          <div className="max-w-4xl mb-16">
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-6 text-accent">
-              The Magazine
+          <div className="max-w-3xl mb-16">
+            <p className="text-sm text-primary mb-4 tracking-wider uppercase">Reading</p>
+            <h1 className="text-5xl md:text-6xl font-serif font-light text-accent mb-6">
+              The magazine
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Insights on horological heritage, collecting, design, and the art of fine watchmaking.
+            <p className="text-xl text-accent/80 leading-relaxed">
+              Explore the world of fine watchmaking through our curated articles, collecting guides, 
+              and insights from master watchmakers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <article key={article.id} className="group">
-                <Link href={`/magazine/${article.id}`}>
-                  <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-lg bg-muted">
-                    <ImagePlaceholder
-                      src=""
-                      alt={article.title}
-                      uploadPath={getPlaceholderPath(article.imagePath)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      aspectRatio="4/3"
-                    />
+              <Link
+                key={article.slug}
+                href={`/magazine/${article.slug}`}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                
+                <div className="flex items-center gap-2 text-xs text-primary mb-3">
+                  <span>{article.category}</span>
+                  <span>·</span>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    <span>{article.readTime}</span>
                   </div>
-                  <div className="mb-3">
-                    <span className="text-xs text-primary uppercase tracking-wider">
-                      {article.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground ml-4">
-                      {article.readTime}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-serif font-light mb-4 text-accent group-hover:text-primary transition-colors">
-                    {article.title}
-                  </h2>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center text-primary group-hover:gap-2 transition-all">
-                    <span className="text-sm">Read article</span>
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </div>
-                </Link>
-              </article>
+                </div>
+
+                <h3 className="text-xl font-serif text-accent group-hover:text-primary transition-colors mb-3 leading-snug">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {article.excerpt}
+                </p>
+              </Link>
             ))}
           </div>
         </div>

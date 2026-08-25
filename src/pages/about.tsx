@@ -1,177 +1,195 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { SEO } from "@/components/SEO";
-import { Shield, Award, Clock, Users } from "lucide-react";
-import { ImagePlaceholder, getPlaceholderPath } from "@/lib/imagePlaceholder";
-
-const values = [
-  {
-    icon: Shield,
-    title: "Authenticity Guaranteed",
-    description: "Every timepiece is meticulously authenticated by our expert horologists before joining our collection."
-  },
-  {
-    icon: Award,
-    title: "Exceptional Quality",
-    description: "We only reserve watches that meet our stringent standards for condition and provenance."
-  },
-  {
-    icon: Clock,
-    title: "Five-Year Warranty",
-    description: "Each watch comes with our comprehensive five-year warranty covering mechanical performance."
-  },
-  {
-    icon: Users,
-    title: "Personalized Service",
-    description: "From discovery to delivery, our team provides white-glove service tailored to collectors."
-  }
-];
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { Shield, Award, Clock, CheckCircle } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <>
-      <SEO 
-        title="About Maison Caldor - Fine Watches Reserved from One Desk"
-        description="Maison Caldor curates exceptional pre-owned luxury timepieces with guaranteed authenticity and personalized service for discerning collectors."
-      />
+      <SEO title="About - Maison Caldor" description="The house of authenticated luxury timepieces, reserved from one desk" />
       <AnnouncementBar />
       <Navigation />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <div className="relative h-[60vh] min-h-[500px] bg-muted">
-          <ImagePlaceholder
-            src=""
-            alt="Maison Caldor - The House"
-            uploadPath={getPlaceholderPath("about-hero.jpg")}
-            className="absolute inset-0 w-full h-full object-cover"
-            aspectRatio="21/9"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
-          <div className="container relative h-full flex flex-col justify-end pb-16">
-            <h1 className="text-5xl md:text-6xl font-serif font-light mb-4 text-accent">
-              The House
-            </h1>
-            <p className="text-xl text-accent/80 max-w-2xl">
-              Fine watches, reserved from one desk
-            </p>
-          </div>
-        </div>
-
-        {/* Mission Statement */}
-        <div className="py-24 border-b border-border">
+        <section className="py-24">
           <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-light mb-8 text-center text-accent">
-                Our Mission
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed text-center mb-8">
-                Maison Caldor exists to connect discerning collectors with exceptional pre-owned luxury timepieces. 
-                We believe that every watch has a story, and we are privileged to be part of that narrative as these 
-                extraordinary objects find new custodians.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed text-center">
-                Our approach is simple: authenticate rigorously, present beautifully, and serve personally. We treat 
-                each timepiece as the work of art it is, and each collector as the individual they are.
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <p className="text-sm text-primary mb-4 tracking-wider uppercase">The house</p>
+              <h1 className="text-5xl md:text-6xl font-serif font-light text-accent mb-6">
+                Reserved from one desk
+              </h1>
+              <p className="text-xl text-accent/80 leading-relaxed">
+                We don't run a marketplace. Every timepiece in our collection passes through our atelier, 
+                where master watchmakers authenticate, service, and prepare each watch for its next custodian.
               </p>
             </div>
-          </div>
-        </div>
 
-        {/* Values */}
-        <div className="py-24 bg-card">
-          <div className="container">
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-16 text-center text-accent">
-              Our Pillars
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-                    <value.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-serif mb-4 text-accent">{value.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Authentication Process */}
-        <div className="py-24">
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8 text-accent">
-                  The Authentication Process
-                </h2>
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-serif mb-3 text-accent">1. Initial Inspection</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Every timepiece undergoes a comprehensive visual inspection by our certified horologists. 
-                      We examine case, dial, hands, and movement for authenticity markers.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-serif mb-3 text-accent">2. Movement Analysis</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      The movement is opened, photographed, and compared against manufacturer specifications. 
-                      We verify serial numbers and check for any non-original components.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-serif mb-3 text-accent">3. Performance Testing</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Each watch is tested on precision timing equipment to ensure it meets chronometric standards. 
-                      Water resistance is verified for diving watches.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-serif mb-3 text-accent">4. Documentation</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Upon authentication, we provide a detailed condition report and certificate. Your watch 
-                      comes with our five-year mechanical warranty.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="relative aspect-[3/4]">
-                <ImagePlaceholder
-                  src=""
-                  alt="Master watchmaker authenticating timepiece"
-                  uploadPath={getPlaceholderPath("authentication-process.jpg")}
-                  className="w-full h-full object-cover rounded-lg"
-                  aspectRatio="3/4"
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
+              <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                <img
+                  src="/about/watchmaker.jpg"
+                  alt="Master watchmaker at work"
+                  className="w-full h-full object-cover"
                 />
               </div>
+              
+              <div>
+                <h2 className="text-3xl font-serif font-light text-accent mb-6">
+                  Our mission
+                </h2>
+                <p className="text-lg text-accent/80 leading-relaxed mb-4">
+                  To preserve the art of fine watchmaking by connecting authenticated luxury timepieces 
+                  with discerning collectors who appreciate horological excellence.
+                </p>
+                <p className="text-accent/70 leading-relaxed">
+                  Every watch tells a story. Our role is to ensure that story continues with integrity, 
+                  authenticity, and the care these mechanical masterpieces deserve.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* The Desk Philosophy */}
-        <div className="py-24 bg-card border-t border-border">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-serif font-light mb-8 text-accent">
-                Reserved from One Desk
+            <div className="mb-24">
+              <div className="text-center mb-12">
+                <p className="text-sm text-primary mb-2 tracking-wider uppercase">Our pillars</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light text-accent">
+                  What defines us
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Shield className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-serif text-accent mb-3">Authenticity</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Rigorous authentication by master watchmakers. Every timepiece verified through 
+                    microscopic examination and technical analysis.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Award className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-serif text-accent mb-3">Excellence</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Curated selection of prestigious manufactures. Only timepieces that represent the 
+                    pinnacle of horological achievement.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-serif text-accent mb-3">Heritage</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Preserving watchmaking tradition. Each piece serviced to manufacturer specifications, 
+                    maintaining its historical integrity.
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <CheckCircle className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-serif text-accent mb-3">Assurance</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    5-year warranty on every timepiece. Worldwide insured shipping. Complete documentation 
+                    and certification.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-lg p-12 mb-24">
+              <div className="max-w-3xl mx-auto">
+                <div className="text-center mb-12">
+                  <p className="text-sm text-primary mb-2 tracking-wider uppercase">The process</p>
+                  <h2 className="text-3xl md:text-4xl font-serif font-light text-accent mb-4">
+                    Authentication & servicing
+                  </h2>
+                  <p className="text-accent/70">
+                    Every watch undergoes a comprehensive authentication and servicing protocol before 
+                    joining our collection.
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
+                      1
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-serif text-accent mb-2">Initial inspection</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Visual examination of case, dial, hands, and movement. Verification of serial 
+                        numbers and reference codes against manufacturer records.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
+                      2
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-serif text-accent mb-2">Technical analysis</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Movement examination under magnification. Verification of caliber authenticity. 
+                        Testing of all complications and functions.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
+                      3
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-serif text-accent mb-2">Servicing</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Complete movement service when required. Replacement of worn components with 
+                        manufacturer-certified parts. Polishing and refinishing as appropriate.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-semibold">
+                      4
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-serif text-accent mb-2">Final certification</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Precision timing verification. Water resistance testing. Complete documentation 
+                        package including authenticity certificate and warranty.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center max-w-2xl mx-auto">
+              <p className="text-sm text-primary mb-4 tracking-wider uppercase">From one desk</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-light text-accent mb-6">
+                A personal approach
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Unlike traditional dealers, we operate from a singular point of contact—our desk. This isn't 
-                a retail space; it's a curator's atelier where exceptional timepieces are researched, authenticated, 
-                and presented to collectors who appreciate them.
+              <p className="text-lg text-accent/80 leading-relaxed mb-8">
+                Unlike impersonal marketplaces, every interaction at Maison Caldor is handled by our team 
+                of watch specialists. We're collectors ourselves, and we understand what it means to acquire 
+                a piece of horological history.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Every inquiry receives personal attention. Every watch is individually photographed and described. 
-                We believe that acquiring a significant timepiece should be an experience as refined as the object itself.
+              <p className="text-accent/70 leading-relaxed">
+                Whether you're seeking a specific reference, building a collection, or exploring the world 
+                of fine watches for the first time, we're here to guide you with expertise and integrity.
               </p>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
       <WhatsAppButton />
