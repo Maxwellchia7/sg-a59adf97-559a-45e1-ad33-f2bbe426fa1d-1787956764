@@ -13,6 +13,9 @@ const deals = [
     originalPrice: 21000,
     reference: "116710LN",
     imagePath: "product-rolex-gmt.jpg",
+    description: "Pre-owned Rolex GMT-Master II in excellent condition",
+    category: "luxury",
+    image: "",
   },
   {
     id: "deal-2",
@@ -22,6 +25,9 @@ const deals = [
     originalPrice: 5400,
     reference: "232.30.42.21.01.003",
     imagePath: "product-omega-planet-ocean.jpg",
+    description: "Pre-owned Omega Seamaster Planet Ocean",
+    category: "luxury",
+    image: "",
   },
   {
     id: "deal-3",
@@ -31,6 +37,9 @@ const deals = [
     originalPrice: 11200,
     reference: "IW371605",
     imagePath: "product-iwc-portugieser.jpg",
+    description: "Pre-owned IWC Portugieser Chronograph",
+    category: "luxury",
+    image: "",
   },
   {
     id: "deal-4",
@@ -40,11 +49,14 @@ const deals = [
     originalPrice: 4100,
     reference: "79030N",
     imagePath: "product-tudor-bb58.jpg",
+    description: "Pre-owned Tudor Black Bay Fifty-Eight",
+    category: "luxury",
+    image: "",
   },
 ];
 
 export function AccessibleLuxury() {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   return (
     <section className="py-24">
@@ -94,14 +106,7 @@ export function AccessibleLuxury() {
                 variant="outline"
                 size="sm"
                 className="w-full mt-4"
-                onClick={() => addItem({
-                  id: product.id,
-                  name: product.name,
-                  brand: product.brand,
-                  price: product.price,
-                  image: "",
-                  quantity: 1,
-                })}
+                onClick={() => addToCart(product, 1)}
               >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Add to bag

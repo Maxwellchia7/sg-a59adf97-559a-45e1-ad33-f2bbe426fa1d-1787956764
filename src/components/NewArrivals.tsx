@@ -12,6 +12,9 @@ const newProducts = [
     price: 14500,
     reference: "116610LN",
     imagePath: "product-rolex-submariner-116610ln.jpg",
+    description: "Pre-owned Rolex Submariner Date",
+    category: "luxury",
+    image: "",
   },
   {
     id: "new-2",
@@ -20,6 +23,9 @@ const newProducts = [
     price: 52000,
     reference: "26331ST.OO.1220ST.03",
     imagePath: "product-ap-royaloak-chrono.jpg",
+    description: "Pre-owned Audemars Piguet Royal Oak Chronograph",
+    category: "luxury",
+    image: "",
   },
   {
     id: "new-3",
@@ -28,6 +34,9 @@ const newProducts = [
     price: 6200,
     reference: "311.30.42.30.01.005",
     imagePath: "product-omega-speedmaster.jpg",
+    description: "Pre-owned Omega Speedmaster Professional Moonwatch",
+    category: "luxury",
+    image: "",
   },
   {
     id: "new-4",
@@ -36,6 +45,9 @@ const newProducts = [
     price: 3800,
     reference: "WSTA0041",
     imagePath: "product-cartier-tank.jpg",
+    description: "Pre-owned Cartier Tank Must",
+    category: "luxury",
+    image: "",
   },
   {
     id: "new-5",
@@ -44,6 +56,9 @@ const newProducts = [
     price: 42000,
     reference: "5167A-001",
     imagePath: "product-patek-aquanaut.jpg",
+    description: "Pre-owned Patek Philippe Aquanaut",
+    category: "luxury",
+    image: "",
   },
   {
     id: "new-6",
@@ -52,11 +67,14 @@ const newProducts = [
     price: 5400,
     reference: "210.30.42.20.01.001",
     imagePath: "product-omega-seamaster.jpg",
+    description: "Pre-owned Omega Seamaster Diver 300M",
+    category: "luxury",
+    image: "",
   },
 ];
 
 export function NewArrivals() {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
   return (
     <section className="py-24 bg-card">
@@ -99,14 +117,7 @@ export function NewArrivals() {
                 variant="outline"
                 size="sm"
                 className="w-full mt-4"
-                onClick={() => addItem({
-                  id: product.id,
-                  name: product.name,
-                  brand: product.brand,
-                  price: product.price,
-                  image: "",
-                  quantity: 1,
-                })}
+                onClick={() => addToCart(product, 1)}
               >
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Add to bag
