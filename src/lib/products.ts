@@ -7,11 +7,11 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116610LN",
     price: 14500,
-    image: "/products/rolex-submariner-116610ln.jpg",
+    image: "/products/1.jpg",
     images: [
-      "/products/rolex-submariner-116610ln.jpg",
-      "/products/rolex-submariner-116610ln-2.jpg",
-      "/products/rolex-submariner-116610ln-3.jpg"
+      "/products/1.jpg",
+      "/products/1.jpg",
+      "/products/1.jpg"
     ],
     description: "The iconic Rolex Submariner Date in stainless steel with black ceramic bezel. The reference 116610LN is the culmination of decades of dive watch evolution.",
     category: "mens",
@@ -32,11 +32,11 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5711/1A-010",
     price: 125000,
-    image: "/products/patek-nautilus-5711.jpg",
+    image: "/products/2.jpg",
     images: [
-      "/products/patek-nautilus-5711.jpg",
-      "/products/patek-nautilus-5711-2.jpg",
-      "/products/patek-nautilus-5711-3.jpg"
+      "/products/2.jpg",
+      "/products/2.jpg",
+      "/products/2.jpg"
     ],
     description: "The legendary Patek Philippe Nautilus 5711 in stainless steel with the iconic blue dial. One of the most sought-after luxury sports watches in existence.",
     category: "mens",
@@ -57,11 +57,11 @@ export const products: Product[] = [
     brand: "Audemars Piguet",
     reference: "15400ST.OO.1220ST.01",
     price: 48000,
-    image: "/products/ap-royaloak-15400st.jpg",
+    image: "/products/3.jpg",
     images: [
-      "/products/ap-royaloak-15400st.jpg",
-      "/products/ap-royaloak-15400st-2.jpg",
-      "/products/ap-royaloak-15400st-3.jpg"
+      "/products/3.jpg",
+      "/products/3.jpg",
+      "/products/3.jpg"
     ],
     description: "The Audemars Piguet Royal Oak 15400ST represents the perfect evolution of Gérald Genta's revolutionary 1972 design. 41mm of haute horlogerie perfection.",
     category: "mens",
@@ -82,11 +82,11 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "311.30.42.30.01.005",
     price: 6200,
-    image: "/products/omega-speedmaster-moonwatch.jpg",
+    image: "/products/4.jpg",
     images: [
-      "/products/omega-speedmaster-moonwatch.jpg",
-      "/products/omega-speedmaster-moonwatch-2.jpg",
-      "/products/omega-speedmaster-moonwatch-3.jpg"
+      "/products/4.jpg",
+      "/products/4.jpg",
+      "/products/4.jpg"
     ],
     description: "The Omega Speedmaster Professional 'Moonwatch' — the only watch certified for EVA by NASA. Manual-wind chronograph perfection.",
     category: "mens",
@@ -107,11 +107,11 @@ export const products: Product[] = [
     brand: "Cartier",
     reference: "WSSA0009",
     price: 7200,
-    image: "/products/cartier-santos-wssa0009.jpg",
+    image: "/products/5.jpg",
     images: [
-      "/products/cartier-santos-wssa0009.jpg",
-      "/products/cartier-santos-wssa0009-2.jpg",
-      "/products/cartier-santos-wssa0009-3.jpg"
+      "/products/5.jpg",
+      "/products/5.jpg",
+      "/products/5.jpg"
     ],
     description: "The modern Santos de Cartier in medium size, perfectly proportioned for contemporary wear. The watch that started it all in 1904.",
     category: "mens",
@@ -132,11 +132,11 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116500LN",
     price: 35800,
-    image: "/products/rolex-daytona-116500ln.jpg",
+    image: "/products/6.jpg",
     images: [
-      "/products/rolex-daytona-116500ln.jpg",
-      "/products/rolex-daytona-116500ln-2.jpg",
-      "/products/rolex-daytona-116500ln-3.jpg"
+      "/products/6.jpg",
+      "/products/6.jpg",
+      "/products/6.jpg"
     ],
     description: "The impossibly rare Rolex Daytona 116500LN with white 'Panda' dial and black ceramic bezel. Racing chronograph royalty.",
     category: "mens",
@@ -157,11 +157,11 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5167A-001",
     price: 42000,
-    image: "/products/patek-aquanaut-5167a.jpg",
+    image: "/products/7.jpg",
     images: [
-      "/products/patek-aquanaut-5167a.jpg",
-      "/products/patek-aquanaut-5167a-2.jpg",
-      "/products/patek-aquanaut-5167a-3.jpg"
+      "/products/7.jpg",
+      "/products/7.jpg",
+      "/products/7.jpg"
     ],
     description: "The Patek Philippe Aquanaut 5167A — the contemporary sports watch for collectors who want something different from the Nautilus.",
     category: "mens",
@@ -182,11 +182,11 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "210.30.42.20.01.001",
     price: 5400,
-    image: "/products/omega-seamaster-300m.jpg",
+    image: "/products/8.jpg",
     images: [
-      "/products/omega-seamaster-300m.jpg",
-      "/products/omega-seamaster-300m-2.jpg",
-      "/products/omega-seamaster-300m-3.jpg"
+      "/products/8.jpg",
+      "/products/8.jpg",
+      "/products/8.jpg"
     ],
     description: "The modern Omega Seamaster Professional Diver 300M. James Bond's watch, refined for the 21st century.",
     category: "mens",
@@ -207,11 +207,11 @@ export const products: Product[] = [
     brand: "IWC",
     reference: "IW371605",
     price: 8900,
-    image: "/products/iwc-portugieser-iw371605.jpg",
+    image: "/products/9.jpg",
     images: [
-      "/products/iwc-portugieser-iw371605.jpg",
-      "/products/iwc-portugieser-iw371605-2.jpg",
-      "/products/iwc-portugieser-iw371605-3.jpg"
+      "/products/9.jpg",
+      "/products/9.jpg",
+      "/products/9.jpg"
     ],
     description: "The IWC Portugieser Chronograph with the classic blue dial. Elegant, understated, timeless.",
     category: "mens",
@@ -232,11 +232,11 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116710LN",
     price: 18500,
-    image: "/products/rolex-gmt-master-ii-116710ln.jpg",
+    image: "/products/10.jpg",
     images: [
-      "/products/rolex-gmt-master-ii-116710ln.jpg",
-      "/products/rolex-gmt-master-ii-116710ln-2.jpg",
-      "/products/rolex-gmt-master-ii-116710ln-3.jpg"
+      "/products/10.jpg",
+      "/products/10.jpg",
+      "/products/10.jpg"
     ],
     description: "The Rolex GMT-Master II with black ceramic bezel — the ultimate traveler's watch with dual time zone functionality.",
     category: "mens",
@@ -257,11 +257,11 @@ export const products: Product[] = [
     brand: "Cartier",
     reference: "WSTA0041",
     price: 3800,
-    image: "/products/cartier-tank-must-wsta0041.jpg",
+    image: "/products/11.jpg",
     images: [
-      "/products/cartier-tank-must-wsta0041.jpg",
-      "/products/cartier-tank-must-wsta0041-2.jpg",
-      "/products/cartier-tank-must-wsta0041-3.jpg"
+      "/products/11.jpg",
+      "/products/11.jpg",
+      "/products/11.jpg"
     ],
     description: "The Cartier Tank Must in stainless steel. The quintessential dress watch, reimagined for the modern era.",
     category: "womens",
@@ -282,11 +282,11 @@ export const products: Product[] = [
     brand: "Tudor",
     reference: "79030N",
     price: 3400,
-    image: "/products/tudor-black-bay-58-79030n.jpg",
+    image: "/products/12.jpg",
     images: [
-      "/products/tudor-black-bay-58-79030n.jpg",
-      "/products/tudor-black-bay-58-79030n-2.jpg",
-      "/products/tudor-black-bay-58-79030n-3.jpg"
+      "/products/12.jpg",
+      "/products/12.jpg",
+      "/products/12.jpg"
     ],
     description: "The Tudor Black Bay Fifty-Eight — vintage-inspired dive watch perfection at 39mm. Everything a tool watch should be.",
     category: "mens",
@@ -307,11 +307,11 @@ export const products: Product[] = [
     brand: "Audemars Piguet",
     reference: "26331ST.OO.1220ST.03",
     price: 52000,
-    image: "/products/ap-royaloak-chrono-26331st.jpg",
+    image: "/products/13.jpg",
     images: [
-      "/products/ap-royaloak-chrono-26331st.jpg",
-      "/products/ap-royaloak-chrono-26331st-2.jpg",
-      "/products/ap-royaloak-chrono-26331st-3.jpg"
+      "/products/13.jpg",
+      "/products/13.jpg",
+      "/products/13.jpg"
     ],
     description: "The Audemars Piguet Royal Oak Chronograph in 41mm stainless steel. The ultimate sports chronograph.",
     category: "mens",
@@ -332,11 +332,11 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "232.30.42.21.01.003",
     price: 4200,
-    image: "/products/omega-planet-ocean-232-30.jpg",
+    image: "/products/14.jpg",
     images: [
-      "/products/omega-planet-ocean-232-30.jpg",
-      "/products/omega-planet-ocean-232-30-2.jpg",
-      "/products/omega-planet-ocean-232-30-3.jpg"
+      "/products/14.jpg",
+      "/products/14.jpg",
+      "/products/14.jpg"
     ],
     description: "The Omega Seamaster Planet Ocean 600M — professional dive watch with serious technical credentials.",
     category: "mens",
@@ -357,11 +357,11 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "126234",
     price: 10200,
-    image: "/products/rolex-datejust-126234.jpg",
+    image: "/products/15.jpg",
     images: [
-      "/products/rolex-datejust-126234.jpg",
-      "/products/rolex-datejust-126234-2.jpg",
-      "/products/rolex-datejust-126234-3.jpg"
+      "/products/15.jpg",
+      "/products/15.jpg",
+      "/products/15.jpg"
     ],
     description: "The quintessential Rolex Datejust in 36mm stainless steel with white gold fluted bezel. Timeless elegance.",
     category: "mens",
