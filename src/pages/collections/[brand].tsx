@@ -1,0 +1,206 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SEO } from "@/components/SEO";
+import { Button } from "@/components/ui/button";
+import { ShoppingBag } from "lucide-react";
+import { products, getProductsByBrand } from "@/lib/products";
+import { useCart } from "@/contexts/CartContext";
+import type { GetStaticPaths, GetStaticProps } from "next";
+import type { Product } from "@/types/product";
+
+interface CollectionPageProps {
+  brand: string;
+  brandProducts: Product[];
+}
+
+const brandInfo: Record<string, { title: string; description: string; heritage: string }> = {
+  rolex: {
+    title: "Rolex Collection",
+    description: "The crown jewel of Swiss watchmaking, Rolex represents unparalleled precision and prestige.",
+    heritage: "Founded in 1905, Rolex has set the standard for luxury timepieces with innovations like the waterproof Oyster case and the self-winding Perpetual movement."
+  },
+  "patek-philippe": {
+    title: "Patek Philippe Collection",
+    description: "The epitome of haute horlogerie, Patek Philippe creates timepieces of extraordinary complexity and beauty.",
+    heritage: "Established in 1839, Patek Philippe is renowned for creating some of the world's most complicated mechanical watches and maintaining the highest standards of Geneva craftsmanship."
+  },
+  "audemars-piguet": {
+    title: "Audemars Piguet Collection",
+    description: "Revolutionary design meets traditional Swiss craftsmanship in every Audemars Piguet timepiece.",
+    heritage: "Since 1875, Audemars Piguet has remained family-owned, producing bold, innovative watches including the iconic Royal Oak."
+  },
+  omega: {
+    title: "Omega Collection",
+    description: "From the moon to the depths of the ocean, Omega has been present at humanity's greatest achievements.",
+    heritage: "Founded in 1848, Omega has been the official timekeeper of the Olympics and the choice of astronauts, combining precision with elegant design."
+  },
+  cartier: {
+    title: "Cartier Collection",
+    description: "Where jewelry artistry meets watchmaking excellence, Cartier creates timepieces of timeless elegance.",
+    heritage: "Since 1847, Cartier has been the jeweler and watchmaker of royalty, known for iconic designs like the Santos and Tank."
+  }
+};
+
+export default function CollectionPage({ brand, brandProducts }: CollectionPageProps) {
+  const router = useRouter();
+  const { addToCart } = useCart();
+  const brandSlug = brand.toLowerCase().replace(/ /g, "-");
+  const info = brandInfo[brandSlug] || {
+    title: `${brand} Collection`,
+    description: `Explore our curated selection of ${brand} luxury timepieces.`,
+    heritage: `Discover the finest ${brand} watches.`
+  };
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  const handleAddToCart = (productId: string) => {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      addToCart(product);
+    }
+  };
+
+  return (
+    <>
+      <SEO 
+        title={`${info.title} - Maison Caldor`}
+        description={info.description}
+      />
+      <Navigation />
+      <main className="min-h-screen">
+        {/* Collection Hero */}
+        <div className="relative h-[50vh] min-h-[400px] bg-muted">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ 
+              backgroundImage: `url('/generated/collection-${brandSlug === "patek-philippe" ? "patek" : brandSlug === "audemars-piguet" ? "ap" : brandSlug}.png')`
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="container relative h-full flex flex-col justify-end pb-12">
+            <h1 className="text-5xl md:text-6xl font-serif font-light mb-4 text-foreground">
+              {info.title}
+            </h1>
+            <p className="text-xl text-accent max-w-2xl">
+              {info.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Heritage Section */}
+        <div className="py-16 border-b border-border">
+          <div className="container">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-serif font-light mb-6 text-foreground">Heritage</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {info.heritage}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Products Grid */}
+        <div className="py-16">
+          <div className="container">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-3xl font-serif font-light text-foreground">
+                Available Timepieces
+              </h2>
+              <p className="text-muted-foreground">
+                {brandProducts.length} watches
+              </p>
+            </div>
+
+            {brandProducts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {brandProducts.map(product => (
+                  <div
+                    key={product.id}
+                    className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                  >
+                    <Link href={`/products/${product.id}`}>
+                      <div className="aspect-square bg-muted overflow-hidden">
+                        <div
+                          className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                          style={{ backgroundImage: `url('${product.image}')` }}
+                        />
+                      </div>
+                    </Link>
+                    <div className="p-6">
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                        {product.brand}
+                      </p>
+                      <Link href={`/products/${product.id}`}>
+                        <h3 className="text-xl font-serif font-light mb-3 text-foreground group-hover:text-primary transition-colors">
+                          {product.name}
+                        </h3>
+                      </Link>
+                      <div className="flex items-center justify-between">
+                        <p className="text-2xl font-light text-primary">
+                          ${product.price.toLocaleString()}
+                        </p>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => handleAddToCart(product.id)}
+                          className="hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                        >
+                          <ShoppingBag className="h-4 w-4 mr-2" />
+                          Add
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-xl text-muted-foreground mb-8">
+                  No watches currently available in this collection.
+                </p>
+                <Link href="/shop">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    View All Collections
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </>
+  );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const brands = Array.from(new Set(products.map(p => p.brand)));
+  const paths = brands.map(brand => ({
+    params: { brand: brand.toLowerCase().replace(/ /g, "-") },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps<CollectionPageProps> = async ({ params }) => {
+  const brandSlug = params?.brand as string;
+  const brand = brandSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  const brandProducts = getProductsByBrand(brand);
+
+  return {
+    props: {
+      brand,
+      brandProducts,
+    },
+    revalidate: 60,
+  };
+};

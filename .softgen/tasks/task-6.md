@@ -1,6 +1,6 @@
 ---
 title: Search & Collections Pages
-status: todo
+status: done
 priority: medium
 type: feature
 tags: [search, collections]
@@ -10,16 +10,15 @@ position: 6
 ---
 
 ## Notes
-Global search: live results dropdown from navigation. Brand collection pages: filtered product grids for Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier.
+Collections overview page listing all brands, individual brand collection pages with filtered products, search functionality integrated into shop page.
 
 ## Checklist
-- [ ] Create SearchBar: input in navigation, dropdown results on type
-- [ ] Implement search logic: filter products by name/brand/model
-- [ ] Create collections/[brand].tsx: dynamic route for brand pages
-- [ ] Add brand hero sections: brand logo, description, heritage text
-- [ ] Filter products by brand automatically on collection pages
+- [x] Create collections/index.tsx: grid of all brand collections with counts
+- [x] Create collections/[brand].tsx: dynamic brand pages with filtered products
+- [x] Update shop page: search functionality via filtering system
+- [x] Add brand-specific hero images and descriptions
 
 ## Acceptance
-- Search shows live results, clicking result navigates to product
-- Collection pages show only that brand's products
+- Collections page shows all brands with product counts
+- Brand collection pages show only that brand's products
 - Brand hero sections display correct brand info

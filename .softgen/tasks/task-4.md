@@ -1,6 +1,6 @@
 ---
 title: Product Detail Pages
-status: in_progress
+status: done
 priority: high
 type: feature
 tags: [products, detail]
@@ -13,12 +13,12 @@ position: 4
 Individual product pages: large image gallery, specifications table, detailed description, quantity selector, add to cart, related products carousel.
 
 ## Checklist
-- [ ] Create products/[id].tsx: dynamic route for product pages
-- [ ] Create ImageGallery: main image + thumbnail strip, click to zoom
-- [ ] Create ProductInfo: name, price, description, specs table (brand, model, case size, movement, material, water resistance)
-- [ ] Add quantity selector and "Add to Cart" / "Buy Now" buttons
-- [ ] Create RelatedProducts: horizontal scroll of 4-6 similar watches
-- [ ] Add shipping/returns info accordion
+- [x] Create products/[id].tsx: dynamic route for product pages
+- [x] Create ImageGallery: main image + thumbnail strip, click to zoom
+- [x] Create ProductInfo: name, price, description, specs table (brand, model, case size, movement, material, water resistance)
+- [x] Add quantity selector and "Add to Cart" / "Buy Now" buttons
+- [x] Create RelatedProducts: horizontal scroll of 4-6 similar watches
+- [x] Add shipping/returns info accordion
 
 ## Acceptance
 - Product page loads with correct data from URL parameter
