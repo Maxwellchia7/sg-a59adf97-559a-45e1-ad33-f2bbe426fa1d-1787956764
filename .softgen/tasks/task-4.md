@@ -1,6 +1,6 @@
 ---
 title: Product Detail Pages
-status: todo
+status: in_progress
 priority: high
 type: feature
 tags: [products, detail]

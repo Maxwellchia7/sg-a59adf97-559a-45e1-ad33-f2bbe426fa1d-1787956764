@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useCart } from "@/contexts/CartContext";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { itemCount } = useCart();
 
   const navLinks = [
     { label: "Shop", href: "/shop" },
@@ -34,12 +36,19 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="hover:text-primary" aria-label="Search">
-            <Search className="h-5 w-5" />
-          </Button>
+          <Link href="/shop">
+            <Button variant="ghost" size="icon" className="text-accent hover:text-primary">
+              <Search className="h-5 w-5" />
+            </Button>
+          </Link>
           <Link href="/cart">
-            <Button variant="ghost" size="icon" className="hover:text-primary" aria-label="Shopping Cart">
+            <Button variant="ghost" size="icon" className="relative text-accent hover:text-primary">
               <ShoppingBag className="h-5 w-5" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-medium">
+                  {itemCount}
+                </span>
+              )}
             </Button>
           </Link>
 

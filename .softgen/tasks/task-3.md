@@ -1,6 +1,6 @@
 ---
 title: Product Catalog & Filtering
-status: in_progress
+status: done
 priority: high
 type: feature
 tags: [products, catalog]
@@ -16,9 +16,9 @@ Main shop page: product grid with sidebar filters (brand, price range, category)
 - [x] Create types/product.ts: Product and Cart interfaces
 - [x] Create lib/products.ts: product data array with 6+ watches, filter/search functions
 - [x] Create contexts/CartContext.tsx: cart state management with localStorage
-- [ ] Create pages/shop.tsx: product grid, brand filters, price range filter, sort options
-- [ ] Update _app.tsx: wrap with CartProvider
-- [ ] Update Navigation: display cart item count badge
+- [x] Create pages/shop.tsx: product grid, brand filters, price range filter, sort options
+- [x] Update _app.tsx: wrap with CartProvider
+- [x] Update Navigation: display cart item count badge
 
 ## Acceptance
 - Shop page shows full product grid, filters work (narrow results)
