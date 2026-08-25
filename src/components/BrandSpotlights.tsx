@@ -1,73 +1,75 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ImagePlaceholder, getPlaceholderPath } from "@/lib/imagePlaceholder";
 
 const brands = [
   {
     name: "Rolex",
-    description: "The crown. Timeless elegance and precision engineering. From the iconic Submariner to the prestigious Day-Date, Rolex represents the pinnacle of watchmaking excellence.",
     slug: "rolex",
-    imagePath: "brand-rolex.jpg",
+    description: "The crown of horology. Discover our collection of authenticated Rolex timepieces, from the iconic Submariner to the timeless Datejust. Each watch represents the pinnacle of Swiss watchmaking excellence.",
+    image: "/brands/rolex.jpg",
   },
   {
     name: "Patek Philippe",
-    description: "The ultimate grail. Unparalleled craftsmanship and heritage since 1839. Each timepiece is a masterpiece of haute horlogerie, cherished across generations.",
     slug: "patek-philippe",
-    imagePath: "brand-patek.jpg",
+    description: "The art of watchmaking perfected. Explore rare and sought-after Patek Philippe pieces, including the legendary Nautilus and Calatrava collections. Investment-grade timepieces for the connoisseur.",
+    image: "/brands/patek-philippe.jpg",
   },
   {
     name: "Audemars Piguet",
-    description: "Breaking conventions. The Royal Oak revolutionized luxury sports watches. Bold design meets exceptional Swiss craftsmanship in every piece.",
     slug: "audemars-piguet",
-    imagePath: "brand-ap.jpg",
+    description: "Avant-garde haute horlogerie. From the revolutionary Royal Oak to contemporary complications, each Audemars Piguet watch pushes the boundaries of traditional watchmaking.",
+    image: "/brands/audemars-piguet.jpg",
   },
   {
     name: "Omega",
-    description: "The moonwatch. Trusted by astronauts and James Bond alike. Precision timekeeping with a legacy of adventure and innovation.",
     slug: "omega",
-    imagePath: "brand-omega.jpg",
+    description: "Precision with heritage. The Speedmaster Moonwatch, Seamaster diving legends, and more. Omega combines technical innovation with timeless design in every timepiece.",
+    image: "/brands/omega.jpg",
   },
   {
     name: "Cartier",
-    description: "Jeweller of kings. The Santos pioneered pilot watches. Where artistry meets horology in perfect harmony.",
     slug: "cartier",
-    imagePath: "brand-cartier.jpg",
+    description: "Jeweler of kings, king of jewelers. Discover elegant dress watches including the Tank, Santos, and Ballon Bleu. Where haute joaillerie meets haute horlogerie.",
+    image: "/brands/cartier.jpg",
   },
 ];
 
 export function BrandSpotlights() {
   return (
-    <section className="py-24 bg-card">
+    <section className="py-24">
       <div className="container">
-        <div className="grid grid-cols-1 gap-16">
+        <div className="space-y-24">
           {brands.map((brand, index) => (
             <div
-              key={brand.slug}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? "lg:grid-flow-dense" : ""
+              key={brand.name}
+              className={`grid md:grid-cols-2 gap-12 items-center ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
-              <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                <ImagePlaceholder
-                  src=""
-                  alt={`${brand.name} watches`}
-                  uploadPath={getPlaceholderPath(brand.imagePath)}
-                  className="w-full rounded-lg"
-                  aspectRatio="4/3"
-                />
+              <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                <Link href={`/collections/${brand.slug}`} className="block group">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                    <img
+                      src={brand.image}
+                      alt={`${brand.name} collection`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </Link>
               </div>
-              <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                <h2 className="text-4xl font-serif font-light mb-4 text-accent">
+              
+              <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                <h2 className="text-4xl md:text-5xl font-serif font-light text-accent mb-6">
                   {brand.name}
                 </h2>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-lg text-accent/80 leading-relaxed mb-8">
                   {brand.description}
                 </p>
                 <Link href={`/collections/${brand.slug}`}>
-                  <Button variant="outline" className="group">
-                    View Collection
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Button variant="outline" size="lg">
+                    Explore collection
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>

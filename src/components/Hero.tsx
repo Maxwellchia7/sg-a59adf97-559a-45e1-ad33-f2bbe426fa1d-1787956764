@@ -1,64 +1,50 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Shield, Truck, Award } from "lucide-react";
-import { ImagePlaceholder, getPlaceholderPath } from "@/lib/imagePlaceholder";
 
 export function Hero() {
   return (
-    <section className="relative h-[600px] md:h-[700px] flex items-center">
-      <ImagePlaceholder
-        src=""
-        alt="Fine watches hero background"
-        uploadPath={getPlaceholderPath("hero-background.jpg")}
+    <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background z-10" />
+      <img
+        src="/hero-watch.jpg"
+        alt="Luxury timepiece"
         className="absolute inset-0 w-full h-full object-cover"
-        aspectRatio="21/9"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
       
-      <div className="container relative z-10">
-        <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-accent">
-            Fine watches, reserved from one desk
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
-            Authentic luxury timepieces with a 5-year warranty and worldwide insured shipping
-          </p>
-          
-          <div className="flex flex-wrap gap-4 mb-12">
-            <Link href="/shop">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Explore Collection
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                Our Story
-              </Button>
-            </Link>
+      <div className="container relative z-20 text-center">
+        <h1 className="text-5xl md:text-7xl font-serif font-light text-accent mb-6 tracking-tight">
+          Fine watches, reserved<br />from one desk
+        </h1>
+        <p className="text-lg md:text-xl text-accent/80 mb-12 max-w-2xl mx-auto">
+          Authenticated luxury timepieces, curated for discerning collectors
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <Link href="/shop">
+            <Button size="lg" className="min-w-[200px]">
+              Discover watches
+            </Button>
+          </Link>
+          <Link href="/about">
+            <Button size="lg" variant="outline" className="min-w-[200px]">
+              Our story
+            </Button>
+          </Link>
+        </div>
+        
+        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div className="flex items-center gap-3">
+            <Shield className="h-6 w-6 text-primary" />
+            <span className="text-sm text-accent">100% Authentic</span>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="flex items-center gap-3">
-              <Shield className="h-8 w-8 text-primary" />
-              <div>
-                <p className="font-semibold text-sm">5-Year Warranty</p>
-                <p className="text-xs text-muted-foreground">On all purchases</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Truck className="h-8 w-8 text-primary" />
-              <div>
-                <p className="font-semibold text-sm">Worldwide Shipping</p>
-                <p className="text-xs text-muted-foreground">Fully insured</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Award className="h-8 w-8 text-primary" />
-              <div>
-                <p className="font-semibold text-sm">100% Authentic</p>
-                <p className="text-xs text-muted-foreground">Certified watches</p>
-              </div>
-            </div>
+          <div className="flex items-center gap-3">
+            <Award className="h-6 w-6 text-primary" />
+            <span className="text-sm text-accent">5-Year Warranty</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Truck className="h-6 w-6 text-primary" />
+            <span className="text-sm text-accent">Worldwide Shipping</span>
           </div>
         </div>
       </div>

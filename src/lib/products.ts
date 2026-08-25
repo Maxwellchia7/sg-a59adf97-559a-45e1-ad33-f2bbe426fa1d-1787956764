@@ -5,303 +5,394 @@ export const products: Product[] = [
     id: "rolex-submariner-116610ln",
     name: "Submariner Date",
     brand: "Rolex",
-    price: 14500,
-    description: "The Rolex Submariner Date ref. 116610LN represents the pinnacle of dive watch design. Featuring a black Cerachrom bezel, this iconic timepiece combines functionality with timeless elegance.",
-    image: "[UPLOAD: maisoncalder.com → product-rolex-submariner-116610ln-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-rolex-submariner-116610ln-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-submariner-116610ln-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-submariner-116610ln-3.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-submariner-116610ln-4.jpg]"
-    ],
-    category: "mens",
-    condition: "excellent",
-    year: 2018,
     reference: "116610LN",
-    features: ["Automatic movement", "40mm stainless steel case", "Black Cerachrom bezel", "300m water resistance", "Oyster bracelet"],
-    inStock: true,
-  },
-  {
-    id: "rolex-daytona-116500ln",
-    name: "Cosmograph Daytona",
-    brand: "Rolex",
-    price: 32500,
-    description: "The legendary Rolex Daytona with white dial and black Cerachrom bezel. A symbol of racing heritage and precision chronograph engineering.",
-    image: "[UPLOAD: maisoncalder.com → product-rolex-daytona-116500ln-main.jpg]",
+    price: 14500,
+    image: "/products/rolex-submariner-116610ln.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-rolex-daytona-116500ln-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-daytona-116500ln-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-daytona-116500ln-3.jpg]"
+      "/products/rolex-submariner-116610ln.jpg",
+      "/products/rolex-submariner-116610ln-2.jpg",
+      "/products/rolex-submariner-116610ln-3.jpg"
     ],
+    description: "The iconic Rolex Submariner Date in stainless steel with black ceramic bezel. The reference 116610LN is the culmination of decades of dive watch evolution.",
     category: "mens",
     condition: "excellent",
-    year: 2020,
-    reference: "116500LN",
-    features: ["Automatic chronograph", "40mm steel case", "Ceramic bezel", "Oyster bracelet", "100m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "rolex-gmt-master-ii-126710blro",
-    name: "GMT-Master II Pepsi",
-    brand: "Rolex",
-    price: 19800,
-    description: "The iconic Rolex GMT-Master II with the beloved blue and red 'Pepsi' Cerachrom bezel. Perfect for world travelers.",
-    image: "[UPLOAD: maisoncalder.com → product-rolex-gmt-126710blro-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-rolex-gmt-126710blro-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-gmt-126710blro-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-gmt-126710blro-3.jpg]"
+    features: [
+      "Oyster Perpetual automatic movement",
+      "40mm case diameter",
+      "Ceramic Cerachrom bezel",
+      "300m water resistance",
+      "Glidelock clasp extension",
+      "Box and papers"
     ],
-    category: "mens",
-    condition: "excellent",
-    year: 2021,
-    reference: "126710BLRO",
-    features: ["Automatic GMT movement", "40mm steel case", "Bi-color ceramic bezel", "Jubilee bracelet", "100m water resistance"],
     inStock: true,
   },
   {
-    id: "patek-philippe-nautilus-5711-1a",
-    name: "Nautilus",
+    id: "patek-philippe-nautilus-5711",
+    name: "Nautilus 5711/1A",
     brand: "Patek Philippe",
-    price: 125000,
-    description: "The legendary Patek Philippe Nautilus 5711/1A in stainless steel with blue dial. The most sought-after luxury sports watch.",
-    image: "[UPLOAD: maisoncalder.com → product-patek-nautilus-5711-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-patek-nautilus-5711-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-patek-nautilus-5711-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-patek-nautilus-5711-3.jpg]"
-    ],
-    category: "mens",
-    condition: "excellent",
-    year: 2019,
     reference: "5711/1A-010",
-    features: ["Automatic movement", "40mm steel case", "Horizontal embossed dial", "Integrated bracelet", "120m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "patek-philippe-aquanaut-5167a",
-    name: "Aquanaut",
-    brand: "Patek Philippe",
-    price: 42000,
-    description: "The Patek Philippe Aquanaut combines sporty elegance with haute horlogerie. Features the distinctive embossed dial and comfortable composite strap.",
-    image: "[UPLOAD: maisoncalder.com → product-patek-aquanaut-5167a-main.jpg]",
+    price: 125000,
+    image: "/products/patek-nautilus-5711.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-patek-aquanaut-5167a-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-patek-aquanaut-5167a-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-patek-aquanaut-5167a-3.jpg]"
+      "/products/patek-nautilus-5711.jpg",
+      "/products/patek-nautilus-5711-2.jpg",
+      "/products/patek-nautilus-5711-3.jpg"
     ],
+    description: "The legendary Patek Philippe Nautilus 5711 in stainless steel with the iconic blue dial. One of the most sought-after luxury sports watches in existence.",
     category: "mens",
     condition: "excellent",
-    year: 2020,
-    reference: "5167A-001",
-    features: ["Automatic movement", "40mm steel case", "Black embossed dial", "Composite strap", "120m water resistance"],
+    features: [
+      "Caliber 26-330 S C automatic movement",
+      "40mm case diameter",
+      "Horizontal embossed dial",
+      "120m water resistance",
+      "Date display at 3 o'clock",
+      "Full set with box and papers"
+    ],
     inStock: true,
   },
   {
-    id: "ap-royal-oak-15400st",
-    name: "Royal Oak",
+    id: "ap-royaloak-15400st",
+    name: "Royal Oak 15400ST",
     brand: "Audemars Piguet",
-    price: 38500,
-    description: "The iconic Audemars Piguet Royal Oak 15400ST with blue 'Grande Tapisserie' dial. A masterpiece of integrated bracelet design.",
-    image: "[UPLOAD: maisoncalder.com → product-ap-royaloak-15400-main.jpg]",
+    reference: "15400ST.OO.1220ST.01",
+    price: 48000,
+    image: "/products/ap-royaloak-15400st.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-15400-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-15400-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-15400-3.jpg]"
+      "/products/ap-royaloak-15400st.jpg",
+      "/products/ap-royaloak-15400st-2.jpg",
+      "/products/ap-royaloak-15400st-3.jpg"
     ],
+    description: "The Audemars Piguet Royal Oak 15400ST represents the perfect evolution of Gérald Genta's revolutionary 1972 design. 41mm of haute horlogerie perfection.",
     category: "mens",
     condition: "excellent",
-    year: 2019,
-    reference: "15400ST.OO.1220ST.03",
-    features: ["Automatic movement", "41mm steel case", "Octagonal bezel", "Integrated bracelet", "50m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "ap-royal-oak-chronograph",
-    name: "Royal Oak Chronograph",
-    brand: "Audemars Piguet",
-    price: 52000,
-    description: "The Audemars Piguet Royal Oak Chronograph combines the iconic octagonal design with sophisticated chronograph functionality.",
-    image: "[UPLOAD: maisoncalder.com → product-ap-royaloak-chrono-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-chrono-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-chrono-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-ap-royaloak-chrono-3.jpg]"
+    features: [
+      "Caliber 3120 automatic movement",
+      "41mm case diameter",
+      "Grande Tapisserie dial",
+      "Octagonal bezel with 8 hexagonal screws",
+      "Integrated bracelet",
+      "Complete set"
     ],
-    category: "mens",
-    condition: "excellent",
-    year: 2021,
-    reference: "26331ST.OO.1220ST.03",
-    features: ["Automatic chronograph", "41mm steel case", "Blue tapisserie dial", "Integrated bracelet", "50m water resistance"],
     inStock: true,
   },
   {
     id: "omega-speedmaster-moonwatch",
-    name: "Speedmaster Professional Moonwatch",
+    name: "Speedmaster Professional",
     brand: "Omega",
-    price: 6200,
-    description: "The legendary Omega Speedmaster Professional - the first watch worn on the moon. Manual-wind chronograph with hesalite crystal.",
-    image: "[UPLOAD: maisoncalder.com → product-omega-speedmaster-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-omega-speedmaster-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-speedmaster-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-speedmaster-3.jpg]"
-    ],
-    category: "mens",
-    condition: "very-good",
-    year: 2018,
     reference: "311.30.42.30.01.005",
-    features: ["Manual-wind chronograph", "42mm steel case", "Hesalite crystal", "Tachymeter bezel", "50m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "omega-seamaster-diver-300m",
-    name: "Seamaster Diver 300M",
-    brand: "Omega",
-    price: 5400,
-    description: "The Omega Seamaster Diver 300M combines professional diving capabilities with sophisticated design. Co-Axial escapement.",
-    image: "[UPLOAD: maisoncalder.com → product-omega-seamaster-main.jpg]",
+    price: 6200,
+    image: "/products/omega-speedmaster-moonwatch.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-omega-seamaster-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-seamaster-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-seamaster-3.jpg]"
+      "/products/omega-speedmaster-moonwatch.jpg",
+      "/products/omega-speedmaster-moonwatch-2.jpg",
+      "/products/omega-speedmaster-moonwatch-3.jpg"
     ],
+    description: "The Omega Speedmaster Professional 'Moonwatch' — the only watch certified for EVA by NASA. Manual-wind chronograph perfection.",
     category: "mens",
     condition: "very-good",
-    year: 2019,
-    reference: "210.30.42.20.01.001",
-    features: ["Automatic movement", "42mm steel case", "Ceramic bezel", "Helium escape valve", "300m water resistance"],
+    features: [
+      "Caliber 1861 manual-wind movement",
+      "42mm case diameter",
+      "Hesalite crystal",
+      "Tachymeter bezel",
+      "Moon landing heritage",
+      "Box and warranty card"
+    ],
     inStock: true,
   },
   {
-    id: "cartier-santos-wssa0029",
+    id: "cartier-santos-wssa0009",
     name: "Santos de Cartier",
     brand: "Cartier",
+    reference: "WSSA0009",
     price: 7200,
-    description: "The Cartier Santos - the first pilot's watch. Square case with exposed screws and Roman numeral dial.",
-    image: "[UPLOAD: maisoncalder.com → product-cartier-santos-main.jpg]",
+    image: "/products/cartier-santos-wssa0009.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-cartier-santos-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-cartier-santos-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-cartier-santos-3.jpg]"
+      "/products/cartier-santos-wssa0009.jpg",
+      "/products/cartier-santos-wssa0009-2.jpg",
+      "/products/cartier-santos-wssa0009-3.jpg"
     ],
+    description: "The modern Santos de Cartier in medium size, perfectly proportioned for contemporary wear. The watch that started it all in 1904.",
     category: "mens",
     condition: "excellent",
-    year: 2020,
-    reference: "WSSA0029",
-    features: ["Automatic movement", "39.8mm steel case", "Square case", "Integrated bracelet", "100m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "cartier-tank-must",
-    name: "Tank Must",
-    brand: "Cartier",
-    price: 3800,
-    description: "The elegant Cartier Tank Must with silver dial and blue hands. A timeless dress watch icon.",
-    image: "[UPLOAD: maisoncalder.com → product-cartier-tank-main.jpg]",
-    images: [
-      "[UPLOAD: maisoncalder.com → product-cartier-tank-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-cartier-tank-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-cartier-tank-3.jpg]"
+    features: [
+      "Caliber 1847 MC automatic movement",
+      "35.1mm case diameter",
+      "Roman numeral dial",
+      "Blue sword-shaped hands",
+      "QuickSwitch interchangeable straps",
+      "Complete set with box and papers"
     ],
-    category: "womens",
-    condition: "excellent",
-    year: 2021,
-    reference: "WSTA0041",
-    features: ["Quartz movement", "33.7mm steel case", "Sapphire crystal", "Leather strap", "30m water resistance"],
     inStock: true,
   },
   {
-    id: "iwc-portugieser-chronograph",
+    id: "rolex-daytona-116500ln",
+    name: "Daytona 'Panda'",
+    brand: "Rolex",
+    reference: "116500LN",
+    price: 35800,
+    image: "/products/rolex-daytona-116500ln.jpg",
+    images: [
+      "/products/rolex-daytona-116500ln.jpg",
+      "/products/rolex-daytona-116500ln-2.jpg",
+      "/products/rolex-daytona-116500ln-3.jpg"
+    ],
+    description: "The impossibly rare Rolex Daytona 116500LN with white 'Panda' dial and black ceramic bezel. Racing chronograph royalty.",
+    category: "mens",
+    condition: "excellent",
+    features: [
+      "Caliber 4130 automatic chronograph",
+      "40mm case diameter",
+      "Ceramic Cerachrom bezel",
+      "Tachymeter scale",
+      "Oyster bracelet with Oysterlock clasp",
+      "Full set"
+    ],
+    inStock: true,
+  },
+  {
+    id: "patek-philippe-aquanaut-5167a",
+    name: "Aquanaut 5167A",
+    brand: "Patek Philippe",
+    reference: "5167A-001",
+    price: 42000,
+    image: "/products/patek-aquanaut-5167a.jpg",
+    images: [
+      "/products/patek-aquanaut-5167a.jpg",
+      "/products/patek-aquanaut-5167a-2.jpg",
+      "/products/patek-aquanaut-5167a-3.jpg"
+    ],
+    description: "The Patek Philippe Aquanaut 5167A — the contemporary sports watch for collectors who want something different from the Nautilus.",
+    category: "mens",
+    condition: "excellent",
+    features: [
+      "Caliber 26-330 S C automatic",
+      "40mm case diameter",
+      "Black embossed dial",
+      "Composite strap",
+      "120m water resistance",
+      "Complete set"
+    ],
+    inStock: true,
+  },
+  {
+    id: "omega-seamaster-300m",
+    name: "Seamaster Diver 300M",
+    brand: "Omega",
+    reference: "210.30.42.20.01.001",
+    price: 5400,
+    image: "/products/omega-seamaster-300m.jpg",
+    images: [
+      "/products/omega-seamaster-300m.jpg",
+      "/products/omega-seamaster-300m-2.jpg",
+      "/products/omega-seamaster-300m-3.jpg"
+    ],
+    description: "The modern Omega Seamaster Professional Diver 300M. James Bond's watch, refined for the 21st century.",
+    category: "mens",
+    condition: "very-good",
+    features: [
+      "Caliber 8800 automatic movement",
+      "42mm case diameter",
+      "Ceramic bezel with diving scale",
+      "300m water resistance",
+      "Helium escape valve",
+      "Full set with warranty"
+    ],
+    inStock: true,
+  },
+  {
+    id: "iwc-portugieser-iw371605",
     name: "Portugieser Chronograph",
     brand: "IWC",
+    reference: "IW371605",
     price: 8900,
-    description: "The IWC Portugieser Chronograph combines classic aesthetics with modern chronograph functionality. Blue hands and Arabic numerals.",
-    image: "[UPLOAD: maisoncalder.com → product-iwc-portugieser-main.jpg]",
+    image: "/products/iwc-portugieser-iw371605.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-iwc-portugieser-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-iwc-portugieser-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-iwc-portugieser-3.jpg]"
+      "/products/iwc-portugieser-iw371605.jpg",
+      "/products/iwc-portugieser-iw371605-2.jpg",
+      "/products/iwc-portugieser-iw371605-3.jpg"
     ],
+    description: "The IWC Portugieser Chronograph with the classic blue dial. Elegant, understated, timeless.",
     category: "mens",
     condition: "excellent",
-    year: 2019,
-    reference: "IW371605",
-    features: ["Automatic chronograph", "41mm steel case", "Silver dial", "Leather strap", "30m water resistance"],
+    features: [
+      "Caliber 69355 automatic chronograph",
+      "41mm case diameter",
+      "Blue dial with arabic numerals",
+      "Day and date display",
+      "Alligator leather strap",
+      "Box and papers"
+    ],
     inStock: true,
   },
   {
-    id: "tudor-black-bay-58",
+    id: "rolex-gmt-master-ii-116710ln",
+    name: "GMT-Master II",
+    brand: "Rolex",
+    reference: "116710LN",
+    price: 18500,
+    image: "/products/rolex-gmt-master-ii-116710ln.jpg",
+    images: [
+      "/products/rolex-gmt-master-ii-116710ln.jpg",
+      "/products/rolex-gmt-master-ii-116710ln-2.jpg",
+      "/products/rolex-gmt-master-ii-116710ln-3.jpg"
+    ],
+    description: "The Rolex GMT-Master II with black ceramic bezel — the ultimate traveler's watch with dual time zone functionality.",
+    category: "mens",
+    condition: "excellent",
+    features: [
+      "Caliber 3186 automatic movement",
+      "40mm case diameter",
+      "Ceramic Cerachrom bezel",
+      "GMT complication",
+      "Oyster bracelet",
+      "Complete set"
+    ],
+    inStock: true,
+  },
+  {
+    id: "cartier-tank-must-wsta0041",
+    name: "Tank Must",
+    brand: "Cartier",
+    reference: "WSTA0041",
+    price: 3800,
+    image: "/products/cartier-tank-must-wsta0041.jpg",
+    images: [
+      "/products/cartier-tank-must-wsta0041.jpg",
+      "/products/cartier-tank-must-wsta0041-2.jpg",
+      "/products/cartier-tank-must-wsta0041-3.jpg"
+    ],
+    description: "The Cartier Tank Must in stainless steel. The quintessential dress watch, reimagined for the modern era.",
+    category: "womens",
+    condition: "excellent",
+    features: [
+      "Quartz movement",
+      "33.7 x 25.5mm case",
+      "Silvered dial with Roman numerals",
+      "Sapphire crystal",
+      "Black alligator strap",
+      "Full set with box and papers"
+    ],
+    inStock: true,
+  },
+  {
+    id: "tudor-black-bay-58-79030n",
     name: "Black Bay Fifty-Eight",
     brand: "Tudor",
+    reference: "79030N",
     price: 3400,
-    description: "The Tudor Black Bay Fifty-Eight with vintage-inspired design and modern reliability. 39mm case for perfect proportions.",
-    image: "[UPLOAD: maisoncalder.com → product-tudor-bb58-main.jpg]",
+    image: "/products/tudor-black-bay-58-79030n.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-tudor-bb58-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-tudor-bb58-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-tudor-bb58-3.jpg]"
+      "/products/tudor-black-bay-58-79030n.jpg",
+      "/products/tudor-black-bay-58-79030n-2.jpg",
+      "/products/tudor-black-bay-58-79030n-3.jpg"
     ],
+    description: "The Tudor Black Bay Fifty-Eight — vintage-inspired dive watch perfection at 39mm. Everything a tool watch should be.",
     category: "mens",
     condition: "very-good",
-    year: 2020,
-    reference: "79030N",
-    features: ["Automatic movement", "39mm steel case", "Domed crystal", "Riveted bracelet", "200m water resistance"],
+    features: [
+      "Caliber MT5402 automatic movement",
+      "39mm case diameter",
+      "Vintage-inspired snowflake hands",
+      "200m water resistance",
+      "Rivet bracelet",
+      "Box and warranty card"
+    ],
     inStock: true,
   },
   {
-    id: "rolex-datejust-126334",
-    name: "Datejust 41",
-    brand: "Rolex",
-    price: 11200,
-    description: "The quintessential Rolex Datejust 41 with blue dial and fluted bezel. Timeless elegance on the wrist.",
-    image: "[UPLOAD: maisoncalder.com → product-rolex-datejust-main.jpg]",
+    id: "ap-royaloak-chrono-26331st",
+    name: "Royal Oak Chronograph",
+    brand: "Audemars Piguet",
+    reference: "26331ST.OO.1220ST.03",
+    price: 52000,
+    image: "/products/ap-royaloak-chrono-26331st.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-rolex-datejust-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-datejust-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-rolex-datejust-3.jpg]"
+      "/products/ap-royaloak-chrono-26331st.jpg",
+      "/products/ap-royaloak-chrono-26331st-2.jpg",
+      "/products/ap-royaloak-chrono-26331st-3.jpg"
     ],
+    description: "The Audemars Piguet Royal Oak Chronograph in 41mm stainless steel. The ultimate sports chronograph.",
     category: "mens",
     condition: "excellent",
-    year: 2021,
-    reference: "126334",
-    features: ["Automatic movement", "41mm steel/white gold case", "Fluted bezel", "Jubilee bracelet", "100m water resistance"],
+    features: [
+      "Caliber 2385 automatic chronograph",
+      "41mm case diameter",
+      "Blue Grande Tapisserie dial",
+      "Integrated chronograph pushers",
+      "Bracelet with AP folding clasp",
+      "Complete set"
+    ],
     inStock: true,
   },
   {
-    id: "omega-planet-ocean",
+    id: "omega-planet-ocean-232-30",
     name: "Seamaster Planet Ocean",
     brand: "Omega",
+    reference: "232.30.42.21.01.003",
     price: 4200,
-    description: "The Omega Seamaster Planet Ocean with black dial and ceramic bezel. Professional dive watch with exceptional reliability.",
-    image: "[UPLOAD: maisoncalder.com → product-omega-planet-ocean-main.jpg]",
+    image: "/products/omega-planet-ocean-232-30.jpg",
     images: [
-      "[UPLOAD: maisoncalder.com → product-omega-planet-ocean-1.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-planet-ocean-2.jpg]",
-      "[UPLOAD: maisoncalder.com → product-omega-planet-ocean-3.jpg]"
+      "/products/omega-planet-ocean-232-30.jpg",
+      "/products/omega-planet-ocean-232-30-2.jpg",
+      "/products/omega-planet-ocean-232-30-3.jpg"
     ],
+    description: "The Omega Seamaster Planet Ocean 600M — professional dive watch with serious technical credentials.",
     category: "mens",
     condition: "very-good",
-    year: 2018,
-    reference: "232.30.42.21.01.003",
-    features: ["Automatic movement", "42mm steel case", "Ceramic bezel", "Helium valve", "600m water resistance"],
+    features: [
+      "Caliber 8500 automatic movement",
+      "42mm case diameter",
+      "600m water resistance",
+      "Helium escape valve",
+      "Ceramic bezel",
+      "Full set"
+    ],
+    inStock: true,
+  },
+  {
+    id: "rolex-datejust-126234",
+    name: "Datejust 36",
+    brand: "Rolex",
+    reference: "126234",
+    price: 10200,
+    image: "/products/rolex-datejust-126234.jpg",
+    images: [
+      "/products/rolex-datejust-126234.jpg",
+      "/products/rolex-datejust-126234-2.jpg",
+      "/products/rolex-datejust-126234-3.jpg"
+    ],
+    description: "The quintessential Rolex Datejust in 36mm stainless steel with white gold fluted bezel. Timeless elegance.",
+    category: "mens",
+    condition: "excellent",
+    features: [
+      "Caliber 3235 automatic movement",
+      "36mm case diameter",
+      "White gold fluted bezel",
+      "Jubilee bracelet",
+      "Cyclops date magnifier",
+      "Complete set with warranty"
+    ],
     inStock: true,
   },
 ];
 
-export function filterProducts(filters: {
-  brand?: string;
-  category?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  condition?: string;
-}): Product[] {
-  return products.filter(p => {
-    if (filters.brand && p.brand !== filters.brand) return false;
-    if (filters.category && p.category !== filters.category) return false;
-    if (filters.minPrice && p.price < filters.minPrice) return false;
-    if (filters.maxPrice && p.price > filters.maxPrice) return false;
-    if (filters.condition && p.condition !== filters.condition) return false;
+export function filterProducts(
+  brandFilter?: string,
+  priceRange?: { min: number; max: number },
+  categoryFilter?: string
+): Product[] {
+  return products.filter(product => {
+    if (brandFilter && product.brand.toLowerCase() !== brandFilter.toLowerCase()) {
+      return false;
+    }
+    if (priceRange && (product.price < priceRange.min || product.price > priceRange.max)) {
+      return false;
+    }
+    if (categoryFilter && product.category !== categoryFilter) {
+      return false;
+    }
     return true;
   });
 }

@@ -3,49 +3,53 @@ import Link from "next/link";
 const manufactures = [
   { name: "Rolex", count: "50,147", slug: "rolex" },
   { name: "Patek Philippe", count: "19,688", slug: "patek-philippe" },
-  { name: "Audemars Piguet", count: "12,403", slug: "audemars-piguet" },
-  { name: "Omega", count: "45,234", slug: "omega" },
-  { name: "Cartier", count: "18,976", slug: "cartier" },
-  { name: "IWC", count: "15,432", slug: "iwc" },
-  { name: "Jaeger-LeCoultre", count: "9,876", slug: "jaeger-lecoultre" },
-  { name: "Vacheron Constantin", count: "7,234", slug: "vacheron-constantin" },
+  { name: "Audemars Piguet", count: "12,455", slug: "audemars-piguet" },
+  { name: "Omega", count: "28,922", slug: "omega" },
+  { name: "Cartier", count: "15,678", slug: "cartier" },
+  { name: "IWC", count: "9,234", slug: "iwc" },
+  { name: "Jaeger-LeCoultre", count: "7,890", slug: "jaeger-lecoultre" },
+  { name: "Vacheron Constantin", count: "6,123", slug: "vacheron-constantin" },
   { name: "A. Lange & Söhne", count: "4,567", slug: "a-lange-sohne" },
-  { name: "Breguet", count: "6,789", slug: "breguet" },
-  { name: "Chopard", count: "8,234", slug: "chopard" },
-  { name: "Hublot", count: "11,432", slug: "hublot" },
-  { name: "Panerai", count: "13,567", slug: "panerai" },
-  { name: "TAG Heuer", count: "28,976", slug: "tag-heuer" },
-  { name: "Breitling", count: "24,567", slug: "breitling" },
-  { name: "Tudor", count: "32,145", slug: "tudor" },
-  { name: "Longines", count: "21,789", slug: "longines" },
-  { name: "Zenith", count: "7,432", slug: "zenith" },
-  { name: "Bell & Ross", count: "9,123", slug: "bell-ross" },
-  { name: "Glashütte Original", count: "5,876", slug: "glashutte-original" },
-  { name: "Blancpain", count: "6,234", slug: "blancpain" },
-  { name: "Oris", count: "14,567", slug: "oris" },
-  { name: "Maurice Lacroix", count: "8,976", slug: "maurice-lacroix" },
-  { name: "Montblanc", count: "11,234", slug: "montblanc" },
-  { name: "Baume & Mercier", count: "9,876", slug: "baume-mercier" },
-  { name: "Tissot", count: "18,432", slug: "tissot" },
+  { name: "Breguet", count: "5,234", slug: "breguet" },
+  { name: "Blancpain", count: "4,890", slug: "blancpain" },
+  { name: "Girard-Perregaux", count: "3,456", slug: "girard-perregaux" },
+  { name: "Panerai", count: "8,765", slug: "panerai" },
+  { name: "TAG Heuer", count: "12,345", slug: "tag-heuer" },
+  { name: "Breitling", count: "11,234", slug: "breitling" },
+  { name: "Tudor", count: "14,567", slug: "tudor" },
+  { name: "Zenith", count: "6,789", slug: "zenith" },
+  { name: "Hublot", count: "7,890", slug: "hublot" },
+  { name: "Bell & Ross", count: "5,678", slug: "bell-ross" },
+  { name: "Chopard", count: "6,543", slug: "chopard" },
+  { name: "Longines", count: "15,432", slug: "longines" },
+  { name: "Oris", count: "8,901", slug: "oris" },
+  { name: "Grand Seiko", count: "5,432", slug: "grand-seiko" },
+  { name: "Ulysse Nardin", count: "4,321", slug: "ulysse-nardin" },
+  { name: "H. Moser & Cie", count: "2,345", slug: "h-moser-cie" },
+  { name: "F.P. Journe", count: "1,789", slug: "fp-journe" },
 ];
 
 export function ManufacturesGrid() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-card">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-serif font-light mb-12 text-center text-accent">
-          Manufactures
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+        <div className="mb-12">
+          <p className="text-sm text-primary mb-2 tracking-wider uppercase">26 Manufactures</p>
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-accent">
+            Browse by brand
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {manufactures.map((brand) => (
             <Link
-              key={brand.slug}
+              key={brand.name}
               href={`/collections/${brand.slug}`}
-              className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors group"
+              className="border border-border rounded-lg p-6 hover:border-primary transition-colors group"
             >
-              <p className="font-semibold text-sm mb-1 group-hover:text-primary transition-colors">
+              <h3 className="font-serif text-accent group-hover:text-primary transition-colors mb-2">
                 {brand.name}
-              </p>
+              </h3>
               <p className="text-xs text-muted-foreground">{brand.count} watches</p>
             </Link>
           ))}
