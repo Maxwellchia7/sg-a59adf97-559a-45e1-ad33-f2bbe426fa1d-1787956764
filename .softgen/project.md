@@ -1,8 +1,8 @@
 ## Vision
-Maison Caldor — luxury pre-owned watch e-commerce platform. Target: high-net-worth collectors seeking authenticated timepieces (Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier). Premium presentation, 5-year warranty, worldwide shipping.
+Maison Caldor — luxury pre-owned watch e-commerce platform recreated from maisoncalder.com reference site. Target: high-net-worth collectors seeking authenticated timepieces (Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier, IWC). Editorial presentation, 5-year warranty, worldwide shipping, personalized service.
 
 ## Design
-Dark luxury aesthetic with editorial sophistication.
+Dark luxury aesthetic with editorial sophistication matching reference site.
 
 **Colors (HSL):**
 - `--background: 0 0% 7% (charcoal black)`
@@ -17,15 +17,25 @@ Dark luxury aesthetic with editorial sophistication.
 - Headings: Cormorant Garamond (serif, 300/400/600)
 - Body: Inter (sans-serif, 400/500/600)
 
-**Style:** Full-bleed imagery, generous white space, subtle hover animations, metallic accents, photography-first product cards, sticky navigation with blur backdrop.
+**Style:** Full-bleed imagery with image placeholders for reference site assets, generous white space, subtle hover animations, metallic accents, photography-first product cards, sticky navigation with blur backdrop, editorial collector language.
 
 ## Features
-- Homepage: hero, featured collections, new arrivals, brand story, testimonials
-- Product catalog: grid with filters (brand, price, category)
-- Product pages: image gallery, specs, add to cart, related products
-- Shopping cart: quantity controls, totals, checkout flow
-- Search: live product search
-- WhatsApp: floating button + contact integration (+1 646 244-0064)
-- Collections: brand-specific pages (Rolex, Patek Philippe, etc.)
-- Contact: form + WhatsApp
-- Mobile: responsive navigation, touch-optimized cart
+**Homepage (17 sections matching reference):**
+- Announcement bar + hero + brand spotlights + stats
+- 26 manufactures grid + editor's desk + ways in
+- By complication + signatures + from the atelier
+- Accessible luxury + assurance + how it works
+- Magazine preview + testimonials + SEO content + final CTA
+
+**Complete Site:**
+- Product catalog (15+ watches) with image placeholders
+- Product detail pages with galleries
+- Shopping bag & checkout (WhatsApp integration)
+- Collections (overview + brand-specific pages)
+- About, Magazine, FAQ, Contact pages
+- Full navigation matching reference structure
+- Mobile responsive
+- Editorial terminology ("bag", "reserve", "from one desk")
+
+**Image Strategy:**
+All images use clear placeholders showing exact reference site paths to upload. No AI-generated images. Format: `[UPLOAD: maisoncalder.com → filename.jpg]`
