@@ -7,11 +7,11 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116610LN",
     price: 14500,
-    image: "/products/1.jpg",
+    image: "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg",
     images: [
-      "/products/1.jpg",
-      "/products/1.jpg",
-      "/products/1.jpg"
+      "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg",
+      "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg",
+      "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg"
     ],
     description: "The iconic Rolex Submariner Date in stainless steel with black ceramic bezel. The reference 116610LN is the culmination of decades of dive watch evolution.",
     category: "mens",
