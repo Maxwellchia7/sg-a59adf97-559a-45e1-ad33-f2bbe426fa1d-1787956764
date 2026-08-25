@@ -15,6 +15,10 @@ const newProducts = [
     description: "Pre-owned Rolex Submariner Date",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Automatic movement", "40mm case", "Ceramic bezel", "300m water resistance"],
+    inStock: true,
   },
   {
     id: "new-2",
@@ -26,6 +30,10 @@ const newProducts = [
     description: "Pre-owned Audemars Piguet Royal Oak Chronograph",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Automatic movement", "41mm case", "Chronograph", "Iconic design"],
+    inStock: true,
   },
   {
     id: "new-3",
@@ -37,6 +45,10 @@ const newProducts = [
     description: "Pre-owned Omega Speedmaster Professional Moonwatch",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Very Good",
+    features: ["Manual-wind movement", "42mm case", "Chronograph", "Hesalite crystal"],
+    inStock: true,
   },
   {
     id: "new-4",
@@ -48,6 +60,10 @@ const newProducts = [
     description: "Pre-owned Cartier Tank Must",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Quartz movement", "33mm case", "Sapphire crystal"],
+    inStock: true,
   },
   {
     id: "new-5",
@@ -59,6 +75,10 @@ const newProducts = [
     description: "Pre-owned Patek Philippe Aquanaut",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Automatic movement", "40mm case", "120m water resistance"],
+    inStock: true,
   },
   {
     id: "new-6",
@@ -70,6 +90,10 @@ const newProducts = [
     description: "Pre-owned Omega Seamaster Diver 300M",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Very Good",
+    features: ["Automatic movement", "42mm case", "300m water resistance", "Helium valve"],
+    inStock: true,
   },
 ];
 

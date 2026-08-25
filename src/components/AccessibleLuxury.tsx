@@ -16,6 +16,10 @@ const deals = [
     description: "Pre-owned Rolex GMT-Master II in excellent condition",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Automatic movement", "40mm case", "Ceramic bezel"],
+    inStock: true,
   },
   {
     id: "deal-2",
@@ -28,6 +32,10 @@ const deals = [
     description: "Pre-owned Omega Seamaster Planet Ocean",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Very Good",
+    features: ["Automatic movement", "42mm case", "600m water resistance"],
+    inStock: true,
   },
   {
     id: "deal-3",
@@ -40,6 +48,10 @@ const deals = [
     description: "Pre-owned IWC Portugieser Chronograph",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Excellent",
+    features: ["Automatic movement", "41mm case", "Chronograph"],
+    inStock: true,
   },
   {
     id: "deal-4",
@@ -52,6 +64,10 @@ const deals = [
     description: "Pre-owned Tudor Black Bay Fifty-Eight",
     category: "luxury",
     image: "",
+    images: [""],
+    condition: "Very Good",
+    features: ["Automatic movement", "39mm case", "200m water resistance"],
+    inStock: true,
   },
 ];
 
