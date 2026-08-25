@@ -1,6 +1,6 @@
 ---
 title: Product Pages & Collections
-status: in_progress
+status: done
 priority: urgent
 type: feature
 tags: [products, collections]
@@ -14,9 +14,9 @@ Recreate complete product catalog from reference site: all brands, all products 
 
 ## Checklist
 - [x] Expand lib/products.ts: add 15+ products from reference site with image placeholder paths
-- [ ] Update products/[id].tsx: match reference site layout with image gallery
-- [ ] Create collections/[brand].tsx: brand-specific landing pages
-- [ ] Verify all product data matches reference structure
+- [x] Update products/[id].tsx: match reference site layout with image gallery
+- [x] Create collections/[brand].tsx: brand-specific landing pages
+- [x] Verify all product data matches reference structure
 
 ## Acceptance
 - Product catalog has 50+ watches from reference site

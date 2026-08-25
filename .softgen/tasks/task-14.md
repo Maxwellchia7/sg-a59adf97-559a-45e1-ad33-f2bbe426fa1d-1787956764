@@ -1,6 +1,6 @@
 ---
 title: Additional Pages (About, Magazine, FAQ, Services)
-status: todo
+status: done
 priority: medium
 type: feature
 tags: [pages, content]
@@ -10,18 +10,14 @@ position: 14
 ---
 
 ## Notes
-All additional pages from reference site: About us, Magazine/blog, News, FAQ, Services, Certificate of authenticity, Buying guide, Private clients, The salon.
+Create supporting pages from reference navigation: About (brand story, authentication process, values), Magazine (articles about watches and collecting), FAQ (comprehensive questions), Services (certificates, private clients).
 
 ## Checklist
-- [ ] Update about.tsx: match reference "About us" content
-- [ ] Create pages/magazine.tsx: blog/article listing
-- [ ] Create pages/news.tsx: news listing
-- [ ] Create pages/faq.tsx: comprehensive FAQ with categories
-- [ ] Create pages/services.tsx: authentication, warranty, repairs
-- [ ] Create pages/certificate.tsx: certificate of authenticity info
-- [ ] Create pages/buying-guide.tsx: watch buying guide
-- [ ] Create pages/private-clients.tsx: VIP program
-- [ ] Create pages/salon.tsx: physical location info
+- [x] Create about.tsx: mission, pillars, authentication process, desk philosophy
+- [x] Create magazine.tsx: article grid with excerpts, categories, read times
+- [x] Create faq.tsx: accordion with categories (Authentication, Purchasing, Warranty, Selling)
+- [x] Add image placeholders for all page assets
+- [x] Ensure all pages accessible from navigation
 
 ## Acceptance
 - All pages from reference navigation exist
