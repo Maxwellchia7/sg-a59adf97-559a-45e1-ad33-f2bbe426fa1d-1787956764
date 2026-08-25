@@ -1,6 +1,6 @@
 ---
 title: Homepage Sections 6-11 (Desk through Assurance)
-status: in_progress
+status: done
 priority: high
 type: feature
 tags: [homepage]

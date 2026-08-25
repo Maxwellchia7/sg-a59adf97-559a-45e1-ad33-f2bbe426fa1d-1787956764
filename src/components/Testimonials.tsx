@@ -2,55 +2,57 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
+    name: "Michael Chen",
+    location: "Hong Kong",
+    rating: 5,
+    text: "The authentication process gave me complete confidence. My Nautilus arrived exactly as described, with impeccable documentation. A truly white-glove experience.",
+    purchase: "Patek Philippe Nautilus 5711",
+  },
+  {
+    name: "Sarah Morrison",
+    location: "London",
+    rating: 5,
+    text: "I've purchased three watches from Maison Caldor now. The expertise and professionalism are unmatched. They understand collectors.",
+    purchase: "Rolex Daytona, AP Royal Oak, Omega Speedmaster",
+  },
+  {
+    name: "David Hoffmann",
+    location: "Zurich",
+    rating: 5,
+    text: "Outstanding service from inquiry to delivery. The watch arrived in pristine condition, and the 5-year warranty provides invaluable peace of mind.",
+    purchase: "Audemars Piguet Royal Oak 15400",
+  },
+  {
     name: "James Patterson",
-    location: "New York, NY",
-    text: "Exceptional service from start to finish. My Patek Philippe arrived exactly as described, beautifully presented. The authentication documentation gave me complete confidence.",
+    location: "New York",
     rating: 5,
-  },
-  {
-    name: "Sarah Chen",
-    location: "Singapore",
-    text: "I've purchased three watches from Maison Caldor. Each time, the experience has been flawless. The 5-year warranty is unmatched in the industry.",
-    rating: 5,
-  },
-  {
-    name: "Marcus Williams",
-    location: "London, UK",
-    text: "As a collector, authenticity is everything. Maison Caldor's verification process is thorough and transparent. Highly recommend for serious buyers.",
-    rating: 5,
+    text: "After years of collecting, I've found my go-to source. The selection is carefully curated, and every piece tells a story. Exceptional in every way.",
+    purchase: "Vacheron Constantin Overseas",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-card/30">
+    <section className="py-24 bg-card">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-light mb-4 text-foreground">
-            Trusted by Collectors
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            What our clients say about their experience
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-3xl md:text-4xl font-serif font-light mb-16 text-center text-accent">
+          What collectors say
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300"
-            >
+            <div key={index} className="bg-background border border-border rounded-lg p-8">
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-muted-foreground mb-6 italic leading-relaxed">
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 "{testimonial.text}"
               </p>
-              <div>
-                <p className="font-medium text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-sm text-accent">{testimonial.name}</p>
+                <p className="text-xs text-muted-foreground mb-2">{testimonial.location}</p>
+                <p className="text-xs text-muted-foreground italic">Purchased: {testimonial.purchase}</p>
               </div>
             </div>
           ))}

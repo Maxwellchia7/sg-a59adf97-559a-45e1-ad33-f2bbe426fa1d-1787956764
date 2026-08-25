@@ -1,6 +1,6 @@
 ---
 title: Homepage Sections 1-5 (Hero through Manufactures)
-status: in_progress
+status: done
 priority: urgent
 type: feature
 tags: [homepage]
