@@ -2,41 +2,30 @@ import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SEO } from "@/components/SEO";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Minus, Plus, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
+import { Plus, Minus, X } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 
-export default function CartPage() {
+export default function BagPage() {
   const { cart, updateQuantity, removeFromCart } = useCart();
-
-  const handleQuantityChange = (productId: string, delta: number) => {
-    const item = cart.items.find(i => i.product.id === productId);
-    if (item) {
-      updateQuantity(productId, item.quantity + delta);
-    }
-  };
 
   if (cart.items.length === 0) {
     return (
       <>
-        <SEO title="Shopping Cart - Maison Caldor" />
+        <SEO title="Shopping Bag - Maison Caldor" description="Your shopping bag is empty" />
+        <AnnouncementBar />
         <Navigation />
         <main className="min-h-screen py-24">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
-              <ShoppingBag className="h-24 w-24 mx-auto mb-6 text-muted-foreground" />
-              <h1 className="text-4xl font-serif font-light mb-4 text-foreground">
-                Your Cart is Empty
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8">
-                Discover our collection of authenticated luxury timepieces
+            <div className="text-center max-w-md mx-auto">
+              <h1 className="text-4xl font-serif text-accent mb-4">Your bag is empty</h1>
+              <p className="text-muted-foreground mb-8">
+                Reserve your timepiece from our curated collection
               </p>
               <Link href="/shop">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Browse Collection
-                </Button>
+                <Button>Discover watches</Button>
               </Link>
             </div>
           </div>
@@ -49,77 +38,63 @@ export default function CartPage() {
 
   return (
     <>
-      <SEO title="Shopping Cart - Maison Caldor" />
+      <SEO title="Shopping Bag - Maison Caldor" description="Review items reserved from one desk" />
+      <AnnouncementBar />
       <Navigation />
-      <main className="min-h-screen py-12">
+      <main className="min-h-screen py-24">
         <div className="container">
-          <h1 className="text-5xl font-serif font-light mb-12 text-foreground">
-            Shopping Cart
-          </h1>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Cart Items */}
+          <h1 className="text-4xl md:text-5xl font-serif text-accent mb-12">Shopping bag</h1>
+          
+          <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6">
-              {cart.items.map(item => (
-                <div
-                  key={item.product.id}
-                  className="bg-card border border-border rounded-lg p-6 flex gap-6"
-                >
-                  <Link href={`/products/${item.product.id}`} className="flex-shrink-0">
-                    <div className="w-32 h-32 bg-muted rounded-lg overflow-hidden">
-                      <div
-                        className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-300"
-                        style={{ backgroundImage: `url('${item.product.image}')` }}
-                      />
+              {cart.items.map((item) => (
+                <div key={item.product.id} className="border border-border rounded-lg p-6">
+                  <div className="flex gap-6">
+                    <div className="w-32 h-32 bg-muted rounded-lg flex-shrink-0">
+                      <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground p-2 text-center">
+                        {item.product.image}
+                      </div>
                     </div>
-                  </Link>
-
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                          {item.product.brand}
-                        </p>
-                        <Link href={`/products/${item.product.id}`}>
-                          <h3 className="text-xl font-serif font-light text-foreground hover:text-primary transition-colors">
+                    
+                    <div className="flex-1">
+                      <div className="flex justify-between mb-2">
+                        <div>
+                          <h3 className="text-lg font-serif text-accent mb-1">
                             {item.product.name}
                           </h3>
-                        </Link>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => removeFromCart(item.product.id)}
-                        className="text-muted-foreground hover:text-destructive"
-                      >
-                        <X className="h-5 w-5" />
-                      </Button>
-                    </div>
-
-                    <p className="text-2xl font-light text-primary mb-4">
-                      ${item.product.price.toLocaleString()}
-                    </p>
-
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-muted-foreground">Quantity:</span>
-                      <div className="flex items-center border border-border rounded-lg">
+                          <p className="text-sm text-muted-foreground">{item.product.brand}</p>
+                          {item.product.reference && (
+                            <p className="text-xs font-mono text-muted-foreground mt-1">
+                              {item.product.reference}
+                            </p>
+                          )}
+                        </div>
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => handleQuantityChange(item.product.id, -1)}
-                          disabled={item.quantity <= 1}
-                          className="h-9 w-9"
+                          onClick={() => removeFromCart(item.product.id)}
+                        >
+                          <X className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      
+                      <p className="text-xl font-serif text-primary mb-4">
+                        ${item.product.price.toLocaleString()}
+                      </p>
+                      
+                      <div className="flex items-center gap-3">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
-                        <span className="px-4 text-foreground font-medium">
-                          {item.quantity}
-                        </span>
+                        <span className="text-sm w-8 text-center">{item.quantity}</span>
                         <Button
-                          variant="ghost"
+                          variant="outline"
                           size="icon"
-                          onClick={() => handleQuantityChange(item.product.id, 1)}
-                          className="h-9 w-9"
+                          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
                         >
                           <Plus className="h-4 w-4" />
                         </Button>
@@ -129,47 +104,39 @@ export default function CartPage() {
                 </div>
               ))}
             </div>
-
-            {/* Order Summary */}
+            
             <div className="lg:col-span-1">
-              <div className="bg-card border border-border rounded-lg p-6 sticky top-24">
-                <h2 className="text-2xl font-serif font-light mb-6 text-foreground">
-                  Order Summary
-                </h2>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between text-muted-foreground">
-                    <span>Subtotal</span>
-                    <span>${cart.total.toLocaleString()}</span>
+              <div className="border border-border rounded-lg p-6 sticky top-24">
+                <h2 className="text-xl font-serif text-accent mb-6">Summary</h2>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Subtotal</span>
+                    <span className="text-accent">${cart.total.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-muted-foreground">
-                    <span>Shipping</span>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Shipping</span>
                     <span className="text-primary">Free</span>
                   </div>
-                  <Separator />
-                  <div className="flex justify-between text-xl font-light text-foreground">
-                    <span>Total</span>
-                    <span className="text-primary">${cart.total.toLocaleString()}</span>
+                  <div className="border-t border-border pt-3 mt-3">
+                    <div className="flex justify-between">
+                      <span className="font-serif text-accent">Total</span>
+                      <span className="font-serif text-xl text-primary">
+                        ${cart.total.toLocaleString()}
+                      </span>
+                    </div>
                   </div>
                 </div>
-
+                
                 <Link href="/checkout">
-                  <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mb-3">
-                    Proceed to Checkout
-                  </Button>
+                  <Button className="w-full mb-3">Proceed to checkout</Button>
                 </Link>
-
+                
                 <Link href="/shop">
-                  <Button size="lg" variant="outline" className="w-full">
-                    Continue Shopping
+                  <Button variant="outline" className="w-full">
+                    Continue browsing
                   </Button>
                 </Link>
-
-                <div className="mt-6 pt-6 border-t border-border text-sm text-muted-foreground">
-                  <p className="mb-2">• 5-Year Warranty Included</p>
-                  <p className="mb-2">• Free Worldwide Shipping</p>
-                  <p>• 30-Day Returns</p>
-                </div>
               </div>
             </div>
           </div>

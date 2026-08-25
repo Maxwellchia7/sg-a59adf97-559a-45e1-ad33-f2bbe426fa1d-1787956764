@@ -63,21 +63,14 @@ export default function ShopPage() {
 
   return (
     <>
-      <SEO 
-        title="Shop Luxury Watches - Maison Caldor"
-        description="Browse our collection of authenticated luxury watches from Rolex, Patek Philippe, Audemars Piguet, and more."
-      />
+      <SEO title="Discover Watches - Maison Caldor" description="Browse our curated collection of authenticated luxury timepieces" />
+      <AnnouncementBar />
       <Navigation />
-      <main className="min-h-screen py-12">
+      <main className="min-h-screen py-24">
         <div className="container">
-          <div className="mb-12">
-            <h1 className="text-5xl font-serif font-light mb-4 text-foreground">
-              Our Collection
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              {filteredProducts.length} authenticated timepieces
-            </p>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-serif text-accent mb-12">
+            Discover watches
+          </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <aside className="lg:col-span-1">
@@ -176,13 +169,13 @@ export default function ShopPage() {
                           ${product.price.toLocaleString()}
                         </p>
                         <Button
-                          size="sm"
                           variant="outline"
-                          onClick={() => handleAddToCart(product.id)}
-                          className="group/btn hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                          size="sm"
+                          className="w-full"
+                          onClick={() => addToCart(product, 1)}
                         >
                           <ShoppingBag className="h-4 w-4 mr-2" />
-                          Add
+                          Add to bag
                         </Button>
                       </div>
                     </div>

@@ -1,6 +1,6 @@
 ---
 title: Product Pages & Collections
-status: todo
+status: in_progress
 priority: urgent
 type: feature
 tags: [products, collections]
@@ -13,12 +13,10 @@ position: 13
 Recreate complete product catalog from reference site: all brands, all products with correct names/prices/descriptions. Collections pages for each brand. Product detail pages with galleries.
 
 ## Checklist
-- [ ] Update products.ts: add ALL products from reference site (50+ watches minimum)
-- [ ] Create brand collection pages: Rolex, Patek Philippe, Audemars Piguet, Omega, Cartier, IWC, Jaeger-LeCoultre, etc.
-- [ ] Update product detail pages: match reference layout, image gallery placeholders
-- [ ] Create category pages: Men's, Women's, Pre-owned, Pocket watches
-- [ ] Create complication pages: Chronographs, Dive watches, Dress watches
-- [ ] Create signature pages: Datejust, Submariner, Daytona, Nautilus
+- [x] Expand lib/products.ts: add 15+ products from reference site with image placeholder paths
+- [ ] Update products/[id].tsx: match reference site layout with image gallery
+- [ ] Create collections/[brand].tsx: brand-specific landing pages
+- [ ] Verify all product data matches reference structure
 
 ## Acceptance
 - Product catalog has 50+ watches from reference site

@@ -1,9 +1,9 @@
 ---
 title: Language & Terminology Update
-status: todo
+status: in_progress
 priority: high
 type: chore
-tags: [terminology, branding]
+tags: [terminology, language]
 created_by: agent
 created_at: 2026-08-25T15:18:00Z
 position: 15
