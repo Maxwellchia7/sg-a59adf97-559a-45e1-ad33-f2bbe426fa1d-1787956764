@@ -1,6 +1,6 @@
 ---
 title: Homepage Hero & Featured Sections
-status: todo
+status: done
 priority: high
 type: feature
 tags: [homepage, hero]
@@ -13,11 +13,11 @@ position: 2
 Homepage showcase: full-bleed hero with luxury watch imagery, featured collections carousel, new arrivals grid, promotional banner section.
 
 ## Checklist
-- [ ] Create Hero: full-screen image, headline "Authenticated Luxury Timepieces", CTA buttons
-- [ ] Generate hero background: luxury watch close-up, dramatic lighting
-- [ ] Create FeaturedCollections: 3-4 brand cards (Rolex, Patek Philippe, Audemars Piguet, Omega) with images
-- [ ] Create NewArrivals: product grid (6-8 items), hover effects, "Add to Cart" buttons
-- [ ] Create PromoBanner: 5-year warranty messaging
+- [x] Create Hero: full-screen image, headline "Authenticated Luxury Timepieces", CTA buttons
+- [x] Generate hero background: luxury watch close-up, dramatic lighting
+- [x] Create FeaturedCollections: 3-4 brand cards (Rolex, Patek Philippe, Audemars Piguet, Omega) with images
+- [x] Create NewArrivals: product grid (6-8 items), hover effects, "Add to Cart" buttons
+- [x] Create PromoBanner: 5-year warranty messaging
 
 ## Acceptance
 - Hero displays with generated image, CTA buttons link correctly
