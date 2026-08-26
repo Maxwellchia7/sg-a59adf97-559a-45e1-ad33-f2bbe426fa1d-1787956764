@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SEO } from "@/components/SEO";
+import { ProxiedImage } from "@/components/ProxiedImage";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, MessageCircle, Check, Shield, Truck, RotateCcw } from "lucide-react";
+import { ShoppingBag, Heart, Share2, ChevronLeft, ChevronRight } from "lucide-react";
 import { products, getProductById } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
-import type { GetStaticPaths, GetStaticProps } from "next";
+import { SEO } from "@/components/SEO";
 import type { Product } from "@/types/product";
+import type { GetStaticProps, GetStaticPaths } from "next";
 
 interface ProductPageProps {
   product: Product;
@@ -54,40 +52,58 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Image Gallery */}
-            <div className="space-y-4">
-              <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
-                <Image
-                  src={product.images[selectedImage]}
-                  alt={`${product.brand} ${product.name}`}
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-              {product.images.length > 1 && (
-                <div className="grid grid-cols-4 gap-4">
-                  {product.images.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedImage(index)}
-                      className={`relative aspect-square bg-muted rounded-lg overflow-hidden border-2 transition-all ${
-                        selectedImage === index ? "border-primary" : "border-transparent hover:border-border"
-                      }`}
-                    >
-                      <Image
-                        src={image}
-                        alt={`${product.brand} ${product.name} - view ${index + 1}`}
-                        fill
-                        unoptimized
-                        className="object-contain"
-                        sizes="(max-width: 1024px) 25vw, 12vw"
-                      />
-                    </button>
-                  ))}
+            <div className="lg:col-span-7">
+              <div className="sticky top-24 space-y-4">
+                <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
+                  <ProxiedImage
+                    src={product.images[selectedImage]}
+                    alt={`${product.brand} ${product.name}`}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                  
+                  {product.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => setSelectedImage(selectedImage - 1)}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
+                      >
+                        <ChevronLeft className="h-6 w-6" />
+                      </button>
+                      <button
+                        onClick={() => setSelectedImage(selectedImage + 1)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
+                      >
+                        <ChevronRight className="h-6 w-6" />
+                      </button>
+                    </>
+                  )}
                 </div>
-              )}
+
+                {product.images.length > 1 && (
+                  <div className="grid grid-cols-4 gap-4">
+                    {product.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setSelectedImage(idx)}
+                        className={`relative aspect-square bg-muted rounded overflow-hidden border-2 transition-all ${
+                          idx === selectedImage
+                            ? "border-primary"
+                            : "border-transparent hover:border-border"
+                        }`}
+                      >
+                        <ProxiedImage
+                          src={img}
+                          alt={`${product.brand} ${product.name} - View ${idx + 1}`}
+                          fill
+                          className="object-contain"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Product Details */}
@@ -219,33 +235,29 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 Similar Timepieces
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {relatedProducts.map(related => (
+                {relatedProducts.map(relatedProduct => (
                   <Link
-                    key={related.id}
-                    href={`/products/${related.id}`}
-                    className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                    key={relatedProduct.id}
+                    href={`/products/${relatedProduct.id}`}
+                    className="group"
                   >
-                    <div className="relative aspect-square bg-muted overflow-hidden">
-                      <Image
-                        src={related.image}
-                        alt={`${related.brand} ${related.name}`}
+                    <div className="relative aspect-square bg-muted rounded-lg overflow-hidden mb-4">
+                      <ProxiedImage
+                        src={relatedProduct.image}
+                        alt={`${relatedProduct.brand} ${relatedProduct.name}`}
                         fill
-                        unoptimized
-                        className="object-contain transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <div className="p-4">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
-                        {related.brand}
-                      </p>
-                      <h3 className="text-lg font-serif font-light mb-2 text-foreground group-hover:text-primary transition-colors">
-                        {related.name}
-                      </h3>
-                      <p className="text-xl font-light text-primary">
-                        ${related.price.toLocaleString()}
-                      </p>
-                    </div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                      {relatedProduct.brand}
+                    </p>
+                    <h4 className="font-serif font-light group-hover:text-primary transition-colors">
+                      {relatedProduct.name}
+                    </h4>
+                    <p className="text-lg text-primary mt-2">
+                      ${relatedProduct.price.toLocaleString()}
+                    </p>
                   </Link>
                 ))}
               </div>

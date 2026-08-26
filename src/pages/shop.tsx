@@ -1,14 +1,14 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { useCart } from "@/contexts/CartContext";
+import { ProxiedImage } from "@/components/ProxiedImage";
 import { products } from "@/lib/products";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, SlidersHorizontal } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -54,13 +54,6 @@ export default function ShopPage() {
         ? prev.filter(b => b !== brand)
         : [...prev, brand]
     );
-  };
-
-  const handleAddToCart = (productId: string) => {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-      addToCart(product);
-    }
   };
 
   return (
@@ -151,11 +144,10 @@ export default function ShopPage() {
                   >
                     <Link href={`/products/${product.id}`}>
                       <div className="relative aspect-square bg-muted overflow-hidden">
-                        <Image
+                        <ProxiedImage
                           src={product.image}
                           alt={`${product.brand} ${product.name}`}
                           fill
-                          unoptimized
                           className="object-contain transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
@@ -170,20 +162,20 @@ export default function ShopPage() {
                           {product.name}
                         </h3>
                       </Link>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mb-3">
                         <p className="text-2xl font-light text-primary">
                           ${product.price.toLocaleString()}
                         </p>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="w-full"
-                          onClick={() => addToCart(product, 1)}
-                        >
-                          <ShoppingBag className="h-4 w-4 mr-2" />
-                          Add to bag
-                        </Button>
                       </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                        onClick={() => addToCart(product, 1)}
+                      >
+                        <ShoppingBag className="h-4 w-4 mr-2" />
+                        Add to bag
+                      </Button>
                     </div>
                   </div>
                 ))}
