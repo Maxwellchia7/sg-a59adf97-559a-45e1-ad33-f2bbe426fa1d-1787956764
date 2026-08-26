@@ -144,25 +144,39 @@ export default function ShopPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredProducts.map(product => (
+                {filteredProducts.map((product, index) => (
                   <div
                     key={product.id}
                     className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                   >
                     <Link href={`/products/${product.id}`}>
                       <div className="relative aspect-square bg-muted overflow-hidden">
-                        <Image
-                          src={product.image}
-                          alt={`${product.brand} ${product.name}`}
-                          fill
-                          className="object-contain transition-transform duration-500 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
+                        {/* DIAGNOSTIC TEST: First product uses plain img, rest use Next Image */}
+                        {index === 0 ? (
+                          <img
+                            src={product.image}
+                            alt={`${product.brand} ${product.name}`}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                              display: "block"
+                            }}
+                          />
+                        ) : (
+                          <Image
+                            src={product.image}
+                            alt={`${product.brand} ${product.name}`}
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        )}
                       </div>
                     </Link>
                     <div className="p-6">
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                        {product.brand}
+                        {product.brand} {index === 0 && "(TEST: plain img)"}
                       </p>
                       <Link href={`/products/${product.id}`}>
                         <h3 className="text-xl font-serif font-light mb-3 text-foreground group-hover:text-primary transition-colors">
