@@ -8,10 +8,10 @@ import { Plus, Minus, X } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 
-export default function BagPage() {
-  const { cart, updateQuantity, removeFromCart } = useCart();
+export default function CartPage() {
+  const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
 
-  if (cart.items.length === 0) {
+  if (items.length === 0) {
     return (
       <>
         <SEO title="Shopping Bag - Maison Caldor" description="Your shopping bag is empty" />
@@ -47,7 +47,7 @@ export default function BagPage() {
           
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6">
-              {cart.items.map((item) => (
+              {items.map((item) => (
                 <div key={item.product.id} className="border border-border rounded-lg p-6">
                   <div className="flex gap-6">
                     <div className="w-32 h-32 bg-muted rounded-lg flex-shrink-0">
@@ -112,7 +112,7 @@ export default function BagPage() {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="text-accent">${cart.total.toLocaleString()}</span>
+                    <span className="text-accent">${totalPrice.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Shipping</span>
@@ -122,7 +122,7 @@ export default function BagPage() {
                     <div className="flex justify-between">
                       <span className="font-serif text-accent">Total</span>
                       <span className="font-serif text-xl text-primary">
-                        ${cart.total.toLocaleString()}
+                        ${totalPrice.toLocaleString()}
                       </span>
                     </div>
                   </div>

@@ -9,9 +9,11 @@ import { Label } from "@/components/ui/label";
 import { SEO } from "@/components/SEO";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { MessageCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
-  const { cart, clearCart } = useCart();
+  const router = useRouter();
+  const { items, totalPrice } = useCart();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -27,7 +29,7 @@ export default function CheckoutPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const itemsList = cart.items
+    const itemsList = items
       .map(item => `${item.product.brand} ${item.product.name} (${item.product.reference}) - $${item.product.price.toLocaleString()} x ${item.quantity}`)
       .join("\n");
     
@@ -44,7 +46,7 @@ ${formData.country}
 Reserved Items:
 ${itemsList}
 
-Total: $${cart.total.toLocaleString()}
+Total: $${totalPrice.toLocaleString()}
 
 Please confirm availability and arrange secure delivery.`;
 
@@ -52,7 +54,6 @@ Please confirm availability and arrange secure delivery.`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, "_blank");
-    clearCart();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -199,7 +200,7 @@ Please confirm availability and arrange secure delivery.`;
                 <h2 className="text-2xl font-serif text-accent mb-6">Order summary</h2>
                 
                 <div className="space-y-4 mb-6">
-                  {cart.items.map((item) => (
+                  {items.map((item) => (
                     <div key={item.product.id} className="flex gap-4">
                       <div className="w-20 h-20 bg-muted rounded flex-shrink-0">
                         <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground p-1 text-center leading-tight">
@@ -222,7 +223,7 @@ Please confirm availability and arrange secure delivery.`;
                 <div className="border-t border-border pt-4 space-y-3">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span className="text-accent">${cart.total.toLocaleString()}</span>
+                    <span className="text-accent">${totalPrice.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Worldwide insured shipping</span>
@@ -232,7 +233,7 @@ Please confirm availability and arrange secure delivery.`;
                     <div className="flex justify-between">
                       <span className="font-serif text-lg text-accent">Total</span>
                       <span className="font-serif text-2xl text-primary">
-                        ${cart.total.toLocaleString()}
+                        ${totalPrice.toLocaleString()}
                       </span>
                     </div>
                   </div>
