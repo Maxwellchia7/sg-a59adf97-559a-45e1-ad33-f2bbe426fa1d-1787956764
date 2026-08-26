@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
@@ -112,11 +113,13 @@ export function NewArrivals() {
           {newProducts.map((product) => (
             <div key={product.id} className="group">
               <Link href={`/products/${product.id}`} className="block mb-4">
-                <div className="relative overflow-hidden rounded-lg aspect-square mb-4">
-                  <img
+                <div className="relative overflow-hidden rounded-lg aspect-square mb-4 bg-muted">
+                  <Image
                     src={product.image}
                     alt={`${product.brand} ${product.name}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <h3 className="text-lg font-serif text-accent group-hover:text-primary transition-colors mb-1">

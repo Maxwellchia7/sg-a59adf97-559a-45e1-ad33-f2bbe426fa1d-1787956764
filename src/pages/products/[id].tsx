@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -54,10 +55,14 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Image Gallery */}
             <div className="space-y-4">
-              <div className="aspect-square bg-muted rounded-lg overflow-hidden">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url('${product.images[selectedImage]}')` }}
+              <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
+                <Image
+                  src={product.images[selectedImage]}
+                  alt={`${product.brand} ${product.name}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
               </div>
               {product.images.length > 1 && (
@@ -66,13 +71,16 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                     <button
                       key={index}
                       onClick={() => setSelectedImage(index)}
-                      className={`aspect-square bg-muted rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`relative aspect-square bg-muted rounded-lg overflow-hidden border-2 transition-all ${
                         selectedImage === index ? "border-primary" : "border-transparent hover:border-border"
                       }`}
                     >
-                      <div
-                        className="w-full h-full bg-cover bg-center"
-                        style={{ backgroundImage: `url('${image}')` }}
+                      <Image
+                        src={image}
+                        alt={`${product.brand} ${product.name} - view ${index + 1}`}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1024px) 25vw, 12vw"
                       />
                     </button>
                   ))}
@@ -215,10 +223,13 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                     href={`/products/${related.id}`}
                     className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="aspect-square bg-muted overflow-hidden">
-                      <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                        style={{ backgroundImage: `url('${related.image}')` }}
+                    <div className="relative aspect-square bg-muted overflow-hidden">
+                      <Image
+                        src={related.image}
+                        alt={`${related.brand} ${related.name}`}
+                        fill
+                        className="object-contain transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       />
                     </div>
                     <div className="p-4">

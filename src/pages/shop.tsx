@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -149,10 +150,13 @@ export default function ShopPage() {
                     className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                   >
                     <Link href={`/products/${product.id}`}>
-                      <div className="aspect-square bg-muted overflow-hidden">
-                        <div
-                          className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                          style={{ backgroundImage: `url('${product.image}')` }}
+                      <div className="relative aspect-square bg-muted overflow-hidden">
+                        <Image
+                          src={product.image}
+                          alt={`${product.brand} ${product.name}`}
+                          fill
+                          className="object-contain transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
                     </Link>
