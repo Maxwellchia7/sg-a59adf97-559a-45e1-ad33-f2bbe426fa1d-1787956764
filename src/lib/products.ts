@@ -7,9 +7,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116610LN",
     price: 14500,
-    image: "/generated/product-rolex-sub.png",
+    image: "https://img.chrono24.com/images/uhren/46754029-5zupr72e2m9isig5aimd8eyc-Square420.jpg",
     images: [
-      "/generated/product-rolex-sub.png"
+      "https://img.chrono24.com/images/uhren/46754029-5zupr72e2m9isig5aimd8eyc-Square420.jpg"
     ],
     description: "The iconic Rolex Submariner Date in stainless steel with black ceramic bezel. The reference 116610LN is the culmination of decades of dive watch evolution.",
     category: "mens",
@@ -30,9 +30,9 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5711/1A-010",
     price: 89500,
-    image: "/generated/product-patek-nautilus.png",
+    image: "https://img.chrono24.com/images/uhren/ja3uoqq4z873-pmgpjjzfng9tn67bl4ahjigt-Square420.jpg",
     images: [
-      "/generated/product-patek-nautilus.png"
+      "https://img.chrono24.com/images/uhren/ja3uoqq4z873-pmgpjjzfng9tn67bl4ahjigt-Square420.jpg"
     ],
     description: "The legendary Patek Philippe Nautilus in stainless steel. One of the most sought-after luxury sports watches in the world.",
     category: "mens",
@@ -53,9 +53,9 @@ export const products: Product[] = [
     brand: "Audemars Piguet",
     reference: "15400ST.OO.1220ST.03",
     price: 42500,
-    image: "/generated/product-ap-royaloak.png",
+    image: "https://img.chrono24.com/images/uhren/47285184-ljofrp95e2g0fihxtsj2s9cg-Square420.jpg",
     images: [
-      "/generated/product-ap-royaloak.png"
+      "https://img.chrono24.com/images/uhren/47285184-ljofrp95e2g0fihxtsj2s9cg-Square420.jpg"
     ],
     description: "The Audemars Piguet Royal Oak in stainless steel with silver-toned 'Grande Tapisserie' dial. An icon of luxury sports watch design.",
     category: "mens",
@@ -76,9 +76,9 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "311.30.42.30.01.005",
     price: 6200,
-    image: "/generated/product-omega-speedmaster.png",
+    image: "https://img.chrono24.com/images/uhren/yprit581nrhu-sw57167nmo0cnt91n299gjks-Square420.jpg",
     images: [
-      "/generated/product-omega-speedmaster.png"
+      "https://img.chrono24.com/images/uhren/yprit581nrhu-sw57167nmo0cnt91n299gjks-Square420.jpg"
     ],
     description: "The legendary Omega Speedmaster Professional, the first watch worn on the moon. Hesalite crystal and manual-wound movement.",
     category: "mens",
@@ -99,9 +99,9 @@ export const products: Product[] = [
     brand: "Cartier",
     reference: "WSSA0009",
     price: 7100,
-    image: "/generated/product-cartier-santos.png",
+    image: "https://img.chrono24.com/images/uhren/47936706-xfy7uaub2uovxtblg2f3c9qw-Square420.jpg",
     images: [
-      "/generated/product-cartier-santos.png"
+      "https://img.chrono24.com/images/uhren/47936706-xfy7uaub2uovxtblg2f3c9qw-Square420.jpg"
     ],
     description: "The Cartier Santos in stainless steel with iconic square case and blue hands. A timeless dress watch with aviation heritage.",
     category: "mens",
@@ -122,9 +122,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116500LN",
     price: 35800,
-    image: "/generated/product-rolex-daytona.png",
+    image: "https://img.chrono24.com/images/uhren/46686500-3w2cya5lrkq1oaf82hqdujfn-Square420.jpg",
     images: [
-      "/generated/product-rolex-daytona.png"
+      "https://img.chrono24.com/images/uhren/46686500-3w2cya5lrkq1oaf82hqdujfn-Square420.jpg"
     ],
     description: "The Rolex Cosmograph Daytona with white dial and black sub-dials, known as the 'Panda' configuration. Ceramic bezel and Oystersteel case.",
     category: "mens",
@@ -145,9 +145,9 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5167A-001",
     price: 42500,
-    image: "/generated/product-patek-nautilus.png",
+    image: "https://img.chrono24.com/images/uhren/puihb2z75g66-e2q6qblmyqge91sbopq75j1m-Square420.jpg",
     images: [
-      "/generated/product-patek-nautilus.png"
+      "https://img.chrono24.com/images/uhren/puihb2z75g66-e2q6qblmyqge91sbopq75j1m-Square420.jpg"
     ],
     description: "The Patek Philippe Aquanaut in stainless steel with black embossed dial and tropical composite strap.",
     category: "mens",
@@ -168,9 +168,9 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "210.30.42.20.01.001",
     price: 5400,
-    image: "/generated/product-omega-speedmaster.png",
+    image: "https://img.chrono24.com/images/uhren/47837583-jd8rrhd3e4s6rpwpv0ecx79k-Square420.jpg",
     images: [
-      "/generated/product-omega-speedmaster.png"
+      "https://img.chrono24.com/images/uhren/47837583-jd8rrhd3e4s6rpwpv0ecx79k-Square420.jpg"
     ],
     description: "The Omega Seamaster Professional Diver 300M with black ceramic dial and wave pattern. Master Chronometer certified.",
     category: "mens",
@@ -191,9 +191,9 @@ export const products: Product[] = [
     brand: "IWC",
     reference: "IW371605",
     price: 8900,
-    image: "/generated/product-cartier-santos.png",
+    image: "https://img.chrono24.com/images/uhren/vyrsxawrzfg2-q4nomrjey7iurj3tey9g6n1n-Square420.jpg",
     images: [
-      "/generated/product-cartier-santos.png"
+      "https://img.chrono24.com/images/uhren/vyrsxawrzfg2-q4nomrjey7iurj3tey9g6n1n-Square420.jpg"
     ],
     description: "The IWC Portugieser Chronograph with silver-plated dial and leaf-shaped hands. Classic dress chronograph design.",
     category: "mens",
@@ -214,9 +214,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "126710BLNR",
     price: 18900,
-    image: "/generated/product-rolex-sub.png",
+    image: "https://img.chrono24.com/images/uhren/jvyx4uddyxr5-euoy50xr3q8max0a70t2im9c-Square420.jpg",
     images: [
-      "/generated/product-rolex-sub.png"
+      "https://img.chrono24.com/images/uhren/jvyx4uddyxr5-euoy50xr3q8max0a70t2im9c-Square420.jpg"
     ],
     description: "The Rolex GMT-Master II with blue and black ceramic bezel, nicknamed 'Batgirl'. Jubilee bracelet and GMT function.",
     category: "mens",
