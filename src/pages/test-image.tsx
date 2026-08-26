@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function TestImagePage() {
   const [networkInfo, setNetworkInfo] = useState<string>("Loading...");
   
-  const testUrl = "https://img.chrono24.com/images/uhren/47341084-b7kqv3516nbhysbzz2vadno6-Zoom.jpg";
+  const testUrl = "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg";
 
   useEffect(() => {
     // Test fetch to see response

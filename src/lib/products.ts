@@ -7,9 +7,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116610LN",
     price: 14500,
-    image: "https://img.chrono24.com/images/uhren/47341084-b7kqv3516nbhysbzz2vadno6-Zoom.jpg",
+    image: "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg",
     images: [
-      "https://img.chrono24.com/images/uhren/47341084-b7kqv3516nbhysbzz2vadno6-Zoom.jpg",
+      "https://img.chrono24.com/images/uhren/640t90iyzzy4-v2xd8xz4fg9i089atga7matj-Zoom.jpg",
       "https://img.chrono24.com/images/uhren/47341084-kg65ypo754crgir35uda4urn-Square480.jpg",
       "https://img.chrono24.com/images/uhren/47341084-uwlougd82zhzxfib77yjbz0c-Square480.jpg",
       "https://img.chrono24.com/images/uhren/47341084-yvzolgzs0tedgsik5r07xk5t-Square480.jpg",
