@@ -21,6 +21,7 @@ export function Navigation() {
               alt="Maison Caldor"
               width={40}
               height={40}
+              unoptimized
               className="h-10 w-10"
             />
             <span className="font-serif text-xl font-light tracking-wider">

@@ -45,6 +45,7 @@ export function Footer() {
                 alt="Maison Caldor"
                 width={32}
                 height={32}
+                unoptimized
                 className="h-8 w-8"
               />
               <span className="font-serif text-xl font-light tracking-wider">

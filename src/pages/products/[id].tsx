@@ -60,6 +60,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                   src={product.images[selectedImage]}
                   alt={`${product.brand} ${product.name}`}
                   fill
+                  unoptimized
                   className="object-contain"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
@@ -79,6 +80,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                         src={image}
                         alt={`${product.brand} ${product.name} - view ${index + 1}`}
                         fill
+                        unoptimized
                         className="object-contain"
                         sizes="(max-width: 1024px) 25vw, 12vw"
                       />
@@ -228,6 +230,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                         src={related.image}
                         alt={`${related.brand} ${related.name}`}
                         fill
+                        unoptimized
                         className="object-contain transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       />

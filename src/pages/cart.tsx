@@ -51,11 +51,12 @@ export default function CartPage() {
               {items.map((item) => (
                 <div key={item.id} className="border border-border rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="relative w-32 h-32 bg-muted rounded-lg flex-shrink-0 overflow-hidden">
+                    <div className="relative h-24 w-24 rounded bg-muted overflow-hidden flex-shrink-0">
                       <Image
                         src={item.image}
-                        alt={`${item.brand} ${item.name}`}
+                        alt={item.name}
                         fill
+                        unoptimized
                         className="object-contain"
                       />
                     </div>

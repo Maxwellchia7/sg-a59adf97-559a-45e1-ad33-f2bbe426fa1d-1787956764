@@ -203,13 +203,16 @@ Please confirm availability and arrange secure delivery.`;
                 <div className="space-y-4 mb-6">
                   {items.map((item) => (
                     <div key={item.id} className="flex gap-4">
-                      <div className="relative w-20 h-20 bg-muted rounded flex-shrink-0 overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={`${item.brand} ${item.name}`}
-                          fill
-                          className="object-contain"
-                        />
+                      <div className="flex items-center gap-3">
+                        <div className="relative h-16 w-16 rounded bg-muted overflow-hidden flex-shrink-0">
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fill
+                            unoptimized
+                            className="object-contain"
+                          />
+                        </div>
                       </div>
                       <div className="flex-1">
                         <h3 className="text-sm font-serif text-accent mb-1">
