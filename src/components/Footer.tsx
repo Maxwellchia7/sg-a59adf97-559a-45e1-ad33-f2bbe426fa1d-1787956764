@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Twitter } from "lucide-react";
+import Image from "next/image";
 
 const buyLinks = [
   { label: "Men's Watches", href: "/collections/mens" },
@@ -34,22 +35,45 @@ const helpLinks = [
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
-            <h3 className="font-serif text-xl mb-6 text-accent">Maison Caldor</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Fine watches, reserved from one desk. Authentic luxury timepieces with a 5-year warranty and worldwide insured shipping.
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Image
+                src="https://maisoncalder.com/assets/logo.svg"
+                alt="Maison Caldor"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
+              <span className="font-serif text-xl font-light tracking-wider">
+                Maison Caldor
+              </span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Curating exceptional timepieces for discerning collectors worldwide.
             </p>
-            <a
-              href="https://wa.me/16462440064"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp +1 (646) 244-0064
-            </a>
+            <div className="flex space-x-4">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div>
