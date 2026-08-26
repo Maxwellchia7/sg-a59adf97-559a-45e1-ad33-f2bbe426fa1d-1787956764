@@ -1,9 +1,5 @@
 import type { Product } from "@/types/product";
 
-// NOTE: Chrono24 URLs blocked with 403 Forbidden due to hotlink protection.
-// Using local copies in public/products/ directory instead.
-// See public/IMAGE-UPLOAD-INSTRUCTIONS.md for upload details.
-
 export const products: Product[] = [
   {
     id: "rolex-submariner-116610ln",
@@ -11,16 +7,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116610LN",
     price: 14500,
-    image: "/products/rolex-submariner-116610ln-main.jpg",
+    image: "/generated/product-rolex-sub.png",
     images: [
-      "/products/rolex-submariner-116610ln-main.jpg",
-      "/products/rolex-submariner-116610ln-2.jpg",
-      "/products/rolex-submariner-116610ln-3.jpg",
-      "/products/rolex-submariner-116610ln-4.jpg",
-      "/products/rolex-submariner-116610ln-5.jpg",
-      "/products/rolex-submariner-116610ln-6.jpg",
-      "/products/rolex-submariner-116610ln-7.jpg",
-      "/products/rolex-submariner-116610ln-8.jpg"
+      "/generated/product-rolex-sub.png"
     ],
     description: "The iconic Rolex Submariner Date in stainless steel with black ceramic bezel. The reference 116610LN is the culmination of decades of dive watch evolution.",
     category: "mens",
@@ -41,9 +30,9 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5711/1A-010",
     price: 89500,
-    image: "/products/patek-nautilus-5711.jpg",
+    image: "/generated/product-patek-nautilus.png",
     images: [
-      "/products/patek-nautilus-5711.jpg"
+      "/generated/product-patek-nautilus.png"
     ],
     description: "The legendary Patek Philippe Nautilus in stainless steel. One of the most sought-after luxury sports watches in the world.",
     category: "mens",
@@ -64,9 +53,9 @@ export const products: Product[] = [
     brand: "Audemars Piguet",
     reference: "15400ST.OO.1220ST.03",
     price: 42500,
-    image: "/products/ap-royaloak-15400st.jpg",
+    image: "/generated/product-ap-royaloak.png",
     images: [
-      "/products/ap-royaloak-15400st.jpg"
+      "/generated/product-ap-royaloak.png"
     ],
     description: "The Audemars Piguet Royal Oak in stainless steel with silver-toned 'Grande Tapisserie' dial. An icon of luxury sports watch design.",
     category: "mens",
@@ -87,9 +76,9 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "311.30.42.30.01.005",
     price: 6200,
-    image: "/products/omega-speedmaster.jpg",
+    image: "/generated/product-omega-speedmaster.png",
     images: [
-      "/products/omega-speedmaster.jpg"
+      "/generated/product-omega-speedmaster.png"
     ],
     description: "The legendary Omega Speedmaster Professional, the first watch worn on the moon. Hesalite crystal and manual-wound movement.",
     category: "mens",
@@ -110,9 +99,9 @@ export const products: Product[] = [
     brand: "Cartier",
     reference: "WSSA0009",
     price: 7100,
-    image: "/products/cartier-santos.jpg",
+    image: "/generated/product-cartier-santos.png",
     images: [
-      "/products/cartier-santos.jpg"
+      "/generated/product-cartier-santos.png"
     ],
     description: "The Cartier Santos in stainless steel with iconic square case and blue hands. A timeless dress watch with aviation heritage.",
     category: "mens",
@@ -133,9 +122,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "116500LN",
     price: 35800,
-    image: "/products/rolex-daytona-panda.jpg",
+    image: "/generated/product-rolex-daytona.png",
     images: [
-      "/products/rolex-daytona-panda.jpg"
+      "/generated/product-rolex-daytona.png"
     ],
     description: "The Rolex Cosmograph Daytona with white dial and black sub-dials, known as the 'Panda' configuration. Ceramic bezel and Oystersteel case.",
     category: "mens",
@@ -156,9 +145,9 @@ export const products: Product[] = [
     brand: "Patek Philippe",
     reference: "5167A-001",
     price: 42500,
-    image: "/products/patek-aquanaut.jpg",
+    image: "/generated/product-patek-nautilus.png",
     images: [
-      "/products/patek-aquanaut.jpg"
+      "/generated/product-patek-nautilus.png"
     ],
     description: "The Patek Philippe Aquanaut in stainless steel with black embossed dial and tropical composite strap.",
     category: "mens",
@@ -179,9 +168,9 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "210.30.42.20.01.001",
     price: 5400,
-    image: "/products/omega-seamaster-300m.jpg",
+    image: "/generated/product-omega-speedmaster.png",
     images: [
-      "/products/omega-seamaster-300m.jpg"
+      "/generated/product-omega-speedmaster.png"
     ],
     description: "The Omega Seamaster Professional Diver 300M with black ceramic dial and wave pattern. Master Chronometer certified.",
     category: "mens",
@@ -202,9 +191,9 @@ export const products: Product[] = [
     brand: "IWC",
     reference: "IW371605",
     price: 8900,
-    image: "/products/iwc-portugieser.jpg",
+    image: "/generated/product-cartier-santos.png",
     images: [
-      "/products/iwc-portugieser.jpg"
+      "/generated/product-cartier-santos.png"
     ],
     description: "The IWC Portugieser Chronograph with silver-plated dial and leaf-shaped hands. Classic dress chronograph design.",
     category: "mens",
@@ -225,9 +214,9 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "126710BLNR",
     price: 18900,
-    image: "/products/rolex-gmt-master-ii.jpg",
+    image: "/generated/product-rolex-sub.png",
     images: [
-      "/products/rolex-gmt-master-ii.jpg"
+      "/generated/product-rolex-sub.png"
     ],
     description: "The Rolex GMT-Master II with blue and black ceramic bezel, nicknamed 'Batgirl'. Jubilee bracelet and GMT function.",
     category: "mens",
@@ -248,8 +237,8 @@ export const products: Product[] = [
     brand: "Cartier",
     reference: "WSTA0041",
     price: 3200,
-    image: "/products/11.jpg",
-    images: ["/products/11.jpg"],
+    image: "/generated/product-cartier-santos.png",
+    images: ["/generated/product-cartier-santos.png"],
     description: "The Cartier Tank Must in stainless steel with silver-toned dial. A timeless rectangular dress watch with Roman numerals.",
     category: "mens",
     condition: "excellent",
@@ -269,8 +258,8 @@ export const products: Product[] = [
     brand: "Tudor",
     reference: "79030N",
     price: 3900,
-    image: "/products/12.jpg",
-    images: ["/products/12.jpg"],
+    image: "/generated/product-rolex-sub.png",
+    images: ["/generated/product-rolex-sub.png"],
     description: "The Tudor Black Bay Fifty-Eight with gilt details and black dial. Vintage-inspired dive watch with modern reliability.",
     category: "mens",
     condition: "excellent",
@@ -290,8 +279,8 @@ export const products: Product[] = [
     brand: "Audemars Piguet",
     reference: "26331ST.OO.1220ST.03",
     price: 54900,
-    image: "/products/13.jpg",
-    images: ["/products/13.jpg"],
+    image: "/generated/product-ap-royaloak.png",
+    images: ["/generated/product-ap-royaloak.png"],
     description: "The Audemars Piguet Royal Oak Chronograph with silver dial and integrated chronograph pushers.",
     category: "mens",
     condition: "excellent",
@@ -311,8 +300,8 @@ export const products: Product[] = [
     brand: "Omega",
     reference: "215.30.44.21.01.001",
     price: 6700,
-    image: "/products/14.jpg",
-    images: ["/products/14.jpg"],
+    image: "/generated/product-omega-speedmaster.png",
+    images: ["/generated/product-omega-speedmaster.png"],
     description: "The Omega Seamaster Planet Ocean with black ceramic bezel and orange accents. Professional dive watch with Co-Axial movement.",
     category: "mens",
     condition: "excellent",
@@ -332,8 +321,8 @@ export const products: Product[] = [
     brand: "Rolex",
     reference: "126234",
     price: 11200,
-    image: "/products/15.jpg",
-    images: ["/products/15.jpg"],
+    image: "/generated/product-rolex-daytona.png",
+    images: ["/generated/product-rolex-daytona.png"],
     description: "The Rolex Datejust 36 with white dial and fluted bezel. Classic dress watch with timeless design.",
     category: "mens",
     condition: "excellent",
