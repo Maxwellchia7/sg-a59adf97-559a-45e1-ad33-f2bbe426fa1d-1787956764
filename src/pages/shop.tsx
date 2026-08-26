@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { useCart } from "@/contexts/CartContext";
 import { products } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, SlidersHorizontal } from "lucide-react";
