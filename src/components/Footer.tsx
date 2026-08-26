@@ -41,7 +41,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="https://maisoncalder.com/assets/logo.svg"
+                src="/logo.svg"
                 alt="Maison Caldor"
                 width={32}
                 height={32}

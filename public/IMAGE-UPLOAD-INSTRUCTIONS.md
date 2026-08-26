@@ -1,165 +1,84 @@
-# Image Upload Instructions for Maison Caldor
+# IMAGE UPLOAD INSTRUCTIONS
 
-This website is configured to use images from the maisoncalder.com reference site. You have permission from business partners to use these original assets.
+The external Chrono24 image URLs return HTTP 403 Forbidden when embedded in the website due to hotlink protection.
 
-## Required Images
+Since you have permission from the business partners to use these assets, please upload authorized copies to the locations below.
 
-Upload the original images from maisoncalder.com to the following locations in the `public/` directory:
+## REQUIRED IMAGES
 
-### Hero Section
-- `public/hero-watch.jpg` - Main hero image (luxury watch close-up)
+Upload the following images to `public/products/` directory:
 
-### Brand Collection Images
-- `public/brands/rolex.jpg` - Rolex brand spotlight
-- `public/brands/patek-philippe.jpg` - Patek Philippe brand spotlight
-- `public/brands/audemars-piguet.jpg` - Audemars Piguet brand spotlight
-- `public/brands/omega.jpg` - Omega brand spotlight
-- `public/brands/cartier.jpg` - Cartier brand spotlight
+### Product 1: Rolex Submariner Date 116610LN
+**Source:** https://img.chrono24.com/images/uhren/47341084-b7kqv3516nbhysbzz2vadno6-Zoom.jpg
+**Upload to:** `public/products/rolex-submariner-116610ln-main.jpg`
 
-### Featured Section
-- `public/featured/editors-pick.jpg` - Editor's desk featured watch
+**Gallery images (7 additional angles):**
+- https://img.chrono24.com/images/uhren/47341084-kg65ypo754crgir35uda4urn-Square480.jpg → `public/products/rolex-submariner-116610ln-2.jpg`
+- https://img.chrono24.com/images/uhren/47341084-uwlougd82zhzxfib77yjbz0c-Square480.jpg → `public/products/rolex-submariner-116610ln-3.jpg`
+- https://img.chrono24.com/images/uhren/47341084-yvzolgzs0tedgsik5r07xk5t-Square480.jpg → `public/products/rolex-submariner-116610ln-4.jpg`
+- https://img.chrono24.com/images/uhren/47341084-d8zozdab5asoiu2aabm1e0xe-Square480.jpg → `public/products/rolex-submariner-116610ln-5.jpg`
+- https://img.chrono24.com/images/uhren/47341084-uvhktxqc4bkhnzghgmf8z89r-Square480.jpg → `public/products/rolex-submariner-116610ln-6.jpg`
+- https://img.chrono24.com/images/uhren/47341084-b7kqv3516nbhysbzz2vadno6-Square480.jpg → `public/products/rolex-submariner-116610ln-7.jpg`
+- https://img.chrono24.com/images/uhren/47341084-cekfmwhjyn3daoa1oei5pflg-Square480.jpg → `public/products/rolex-submariner-116610ln-8.jpg`
 
-### Category Images
-- `public/categories/mens.jpg` - Men's watches category
-- `public/categories/womens.jpg` - Women's watches category
-- `public/categories/pre-owned.jpg` - Pre-owned category
-- `public/categories/pocket.jpg` - Pocket watches category
+### Product 2: Patek Philippe Nautilus 5711
+**Source:** https://img.chrono24.com/images/uhren/44959116-6arwmxlm3bq1zf90l7e8k6ip-Square480.jpg
+**Upload to:** `public/products/patek-nautilus-5711.jpg`
 
-### Complication Images
-- `public/complications/chronograph.jpg` - Chronograph watches
-- `public/complications/dive.jpg` - Dive watches
-- `public/complications/dress.jpg` - Dress watches
+### Product 3: Audemars Piguet Royal Oak 15400ST
+**Source:** https://img.chrono24.com/images/uhren/47607576-l1xoy1ukrsvgfukoo4a6iglx-Square480.jpg
+**Upload to:** `public/products/ap-royaloak-15400st.jpg`
 
-### Signature Model Images
-- `public/signatures/datejust.jpg` - Rolex Datejust
-- `public/signatures/submariner.jpg` - Rolex Submariner
-- `public/signatures/daytona.jpg` - Rolex Daytona
-- `public/signatures/nautilus.jpg` - Patek Philippe Nautilus
+### Product 4: Omega Speedmaster
+**Source:** https://img.chrono24.com/images/uhren/47607629-0fu20aouamcziahqwl9jkanb-Square480.jpg
+**Upload to:** `public/products/omega-speedmaster.jpg`
 
-### Magazine/Reading Section
-- `public/magazine/submariner-guide.jpg` - Article image
-- `public/magazine/patek-investment.jpg` - Article image
-- `public/magazine/authentication.jpg` - Article image
+### Product 5: Cartier Santos
+**Source:** https://img.chrono24.com/images/uhren/41329565-yjt5gcqx6jo6il5elsuc8f9l-Square480.jpg
+**Upload to:** `public/products/cartier-santos.jpg`
 
-### About Section
-- `public/about/watchmaker.jpg` - Master watchmaker at work
+### Product 6: Rolex Daytona
+**Source:** https://img.chrono24.com/images/uhren/r82r2z1a8vsn-3xvfxvze8ivg4y35pwzqbzdn-Square480.jpg
+**Upload to:** `public/products/rolex-daytona-panda.jpg`
 
-### Product Images (15 watches)
-Each product needs at least 3 images (main + 2 detail shots):
+### Product 7: Patek Philippe Aquanaut
+**Source:** https://img.chrono24.com/images/uhren/zm2dslrjglcv-90ncw2r794ke1zo12vd31yu7-Square480.jpg
+**Upload to:** `public/products/patek-aquanaut.jpg`
 
-1. **Rolex Submariner 116610LN**
-   - `public/products/rolex-submariner-116610ln.jpg`
-   - `public/products/rolex-submariner-116610ln-2.jpg`
-   - `public/products/rolex-submariner-116610ln-3.jpg`
+### Product 8: Omega Seamaster
+**Source:** https://img.chrono24.com/images/uhren/47860918-zj36kqxix5uhk3r7z1znmj1j-Square480.jpg
+**Upload to:** `public/products/omega-seamaster-300m.jpg`
 
-2. **Patek Philippe Nautilus 5711**
-   - `public/products/patek-nautilus-5711.jpg`
-   - `public/products/patek-nautilus-5711-2.jpg`
-   - `public/products/patek-nautilus-5711-3.jpg`
+### Product 9: IWC Portugieser
+**Source:** https://img.chrono24.com/images/uhren/46270614-zk54euzce84ia49h2xpko5k6-Square480.jpg
+**Upload to:** `public/products/iwc-portugieser.jpg`
 
-3. **Audemars Piguet Royal Oak 15400ST**
-   - `public/products/ap-royaloak-15400st.jpg`
-   - `public/products/ap-royaloak-15400st-2.jpg`
-   - `public/products/ap-royaloak-15400st-3.jpg`
+### Product 10: Rolex GMT-Master II
+**Source:** https://img.chrono24.com/images/uhren/46686035-tnqiahb2lroirs3jult5zwgy-Square480.jpg
+**Upload to:** `public/products/rolex-gmt-master-ii.jpg`
 
-4. **Omega Speedmaster Moonwatch**
-   - `public/products/omega-speedmaster-moonwatch.jpg`
-   - `public/products/omega-speedmaster-moonwatch-2.jpg`
-   - `public/products/omega-speedmaster-moonwatch-3.jpg`
+### Logo
+**Source:** https://maisoncalder.com/assets/logo.svg
+**Upload to:** `public/logo.svg`
 
-5. **Cartier Santos WSSA0009**
-   - `public/products/cartier-santos-wssa0009.jpg`
-   - `public/products/cartier-santos-wssa0009-2.jpg`
-   - `public/products/cartier-santos-wssa0009-3.jpg`
+## UPLOAD PROCESS
 
-6. **Rolex Daytona 116500LN**
-   - `public/products/rolex-daytona-116500ln.jpg`
-   - `public/products/rolex-daytona-116500ln-2.jpg`
-   - `public/products/rolex-daytona-116500ln-3.jpg`
+1. Download each image from the source URL by opening it in your browser
+2. Save it with the exact filename specified above
+3. Upload to the `public/products/` directory in your project
+4. The website will automatically display the uploaded images
 
-7. **Patek Philippe Aquanaut 5167A**
-   - `public/products/patek-aquanaut-5167a.jpg`
-   - `public/products/patek-aquanaut-5167a-2.jpg`
-   - `public/products/patek-aquanaut-5167a-3.jpg`
+## VERIFICATION
 
-8. **Omega Seamaster 300M**
-   - `public/products/omega-seamaster-300m.jpg`
-   - `public/products/omega-seamaster-300m-2.jpg`
-   - `public/products/omega-seamaster-300m-3.jpg`
+After uploading, check:
+- Shop page (`/shop`) - all product cards should display images
+- Product detail pages - main image and gallery should work
+- Cart and checkout - product thumbnails should appear
+- Navigation and footer - Maison Caldor logo should display
 
-9. **IWC Portugieser IW371605**
-   - `public/products/iwc-portugieser-iw371605.jpg`
-   - `public/products/iwc-portugieser-iw371605-2.jpg`
-   - `public/products/iwc-portugieser-iw371605-3.jpg`
+## TECHNICAL NOTES
 
-10. **Rolex GMT-Master II 116710LN**
-    - `public/products/rolex-gmt-master-ii-116710ln.jpg`
-    - `public/products/rolex-gmt-master-ii-116710ln-2.jpg`
-    - `public/products/rolex-gmt-master-ii-116710ln-3.jpg`
-
-11. **Cartier Tank Must WSTA0041**
-    - `public/products/cartier-tank-must-wsta0041.jpg`
-    - `public/products/cartier-tank-must-wsta0041-2.jpg`
-    - `public/products/cartier-tank-must-wsta0041-3.jpg`
-
-12. **Tudor Black Bay 58 79030N**
-    - `public/products/tudor-black-bay-58-79030n.jpg`
-    - `public/products/tudor-black-bay-58-79030n-2.jpg`
-    - `public/products/tudor-black-bay-58-79030n-3.jpg`
-
-13. **AP Royal Oak Chronograph 26331ST**
-    - `public/products/ap-royaloak-chrono-26331st.jpg`
-    - `public/products/ap-royaloak-chrono-26331st-2.jpg`
-    - `public/products/ap-royaloak-chrono-26331st-3.jpg`
-
-14. **Omega Planet Ocean 232.30**
-    - `public/products/omega-planet-ocean-232-30.jpg`
-    - `public/products/omega-planet-ocean-232-30-2.jpg`
-    - `public/products/omega-planet-ocean-232-30-3.jpg`
-
-15. **Rolex Datejust 126234**
-    - `public/products/rolex-datejust-126234.jpg`
-    - `public/products/rolex-datejust-126234-2.jpg`
-    - `public/products/rolex-datejust-126234-3.jpg`
-
-### New Arrivals Section (uses product images above)
-- `/products/rolex-submariner-116610ln.jpg`
-- `/products/ap-royaloak-chrono-26331st.jpg`
-- `/products/omega-speedmaster-moonwatch.jpg`
-- `/products/cartier-tank-must-wsta0041.jpg`
-- `/products/patek-aquanaut-5167a.jpg`
-- `/products/omega-seamaster-300m.jpg`
-
-### Best Deals Section
-- `/products/rolex-gmt-master-ii-116710ln.jpg`
-- `/products/omega-planet-ocean-232-30.jpg`
-- `/products/iwc-portugieser-iw371605.jpg`
-- `/products/tudor-black-bay-58-79030n.jpg`
-
-## How to Upload
-
-1. Download the original images from maisoncalder.com (which you have permission to use)
-2. Rename them to match the exact filenames listed above
-3. Upload them to the corresponding folders in the `public/` directory
-4. Once uploaded, the images will automatically display on the website
-
-## Image Specifications
-
-- Format: JPG preferred (also supports PNG, WebP)
-- Hero image: Recommended 1920x800px
-- Product images: Recommended 800x800px or larger (square aspect ratio)
-- Brand/category images: Recommended 1200x900px (4:3 aspect ratio)
-- Magazine images: Recommended 1200x900px (4:3 aspect ratio)
-
-## Fallback
-
-Until images are uploaded, the website will show a dark gray background where images should appear. The layout is designed to accommodate the images perfectly once they're in place.
-
-## Total Images Required
-
-- **Homepage sections**: ~25 images
-- **Product catalog**: ~45 images (15 products × 3 images each)
-- **Magazine/Reading**: 3 images
-- **About**: 1 image
-
-**Total: ~74 images**
+- Local paths use `/products/filename.jpg` (Next.js serves from `public/` automatically)
+- No external URL configuration needed for local images
+- Images load instantly without 403 errors
+- Full control over image optimization and caching
