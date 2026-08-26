@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Plus, Minus, X } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
+import Image from "next/image";
 
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
@@ -48,45 +49,48 @@ export default function CartPage() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-6">
               {items.map((item) => (
-                <div key={item.product.id} className="border border-border rounded-lg p-6">
+                <div key={item.id} className="border border-border rounded-lg p-6">
                   <div className="flex gap-6">
-                    <div className="w-32 h-32 bg-muted rounded-lg flex-shrink-0">
-                      <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground p-2 text-center">
-                        {item.product.image}
-                      </div>
+                    <div className="relative w-32 h-32 bg-muted rounded-lg flex-shrink-0 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={`${item.brand} ${item.name}`}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     
                     <div className="flex-1">
                       <div className="flex justify-between mb-2">
                         <div>
                           <h3 className="text-lg font-serif text-accent mb-1">
-                            {item.product.name}
+                            {item.name}
                           </h3>
-                          <p className="text-sm text-muted-foreground">{item.product.brand}</p>
-                          {item.product.reference && (
+                          <p className="text-sm text-muted-foreground">{item.brand}</p>
+                          {item.reference && (
                             <p className="text-xs font-mono text-muted-foreground mt-1">
-                              {item.product.reference}
+                              {item.reference}
                             </p>
                           )}
                         </div>
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => removeFromCart(item.product.id)}
+                          onClick={() => removeFromCart(item.id)}
                         >
                           <X className="h-4 w-4" />
                         </Button>
                       </div>
                       
                       <p className="text-xl font-serif text-primary mb-4">
-                        ${item.product.price.toLocaleString()}
+                        ${item.price.toLocaleString()}
                       </p>
                       
                       <div className="flex items-center gap-3">
                         <Button
                           variant="outline"
                           size="icon"
-                          onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         >
                           <Minus className="h-4 w-4" />
                         </Button>
@@ -94,7 +98,7 @@ export default function CartPage() {
                         <Button
                           variant="outline"
                           size="icon"
-                          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <Plus className="h-4 w-4" />
                         </Button>

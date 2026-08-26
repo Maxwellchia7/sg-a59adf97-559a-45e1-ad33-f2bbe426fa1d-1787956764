@@ -9,7 +9,8 @@ import { Label } from "@/components/ui/label";
 import { SEO } from "@/components/SEO";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { MessageCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function CheckoutPage() {
     e.preventDefault();
     
     const itemsList = items
-      .map(item => `${item.product.brand} ${item.product.name} (${item.product.reference}) - $${item.product.price.toLocaleString()} x ${item.quantity}`)
+      .map(item => `${item.brand} ${item.name} (${item.reference}) - $${item.price.toLocaleString()} x ${item.quantity}`)
       .join("\n");
     
     const message = `Reserve Inquiry from ${formData.firstName} ${formData.lastName}
@@ -201,19 +202,22 @@ Please confirm availability and arrange secure delivery.`;
                 
                 <div className="space-y-4 mb-6">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex gap-4">
-                      <div className="w-20 h-20 bg-muted rounded flex-shrink-0">
-                        <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground p-1 text-center leading-tight">
-                          {item.product.image}
-                        </div>
+                    <div key={item.id} className="flex gap-4">
+                      <div className="relative w-20 h-20 bg-muted rounded flex-shrink-0 overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={`${item.brand} ${item.name}`}
+                          fill
+                          className="object-contain"
+                        />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-sm font-serif text-accent mb-1">
-                          {item.product.name}
+                          {item.name}
                         </h3>
-                        <p className="text-xs text-muted-foreground">{item.product.brand}</p>
+                        <p className="text-xs text-muted-foreground">{item.brand}</p>
                         <p className="text-sm text-primary mt-1">
-                          ${item.product.price.toLocaleString()} × {item.quantity}
+                          ${item.price.toLocaleString()} × {item.quantity}
                         </p>
                       </div>
                     </div>
