@@ -1,57 +1,41 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import type { Product, CartItem, Cart } from "@/types/product";
+import { createContext, useContext, useState, ReactNode } from "react";
+import type { Product } from "@/types/product";
+
+interface CartItem extends Product {
+  quantity: number;
+}
 
 interface CartContextType {
-  cart: Cart;
+  items: CartItem[];
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
-  itemCount: number;
+  totalItems: number;
+  totalPrice: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<Cart>({ items: [], total: 0 });
-
-  useEffect(() => {
-    const savedCart = localStorage.getItem("maison-caldor-cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("maison-caldor-cart", JSON.stringify(cart));
-  }, [cart]);
+  const [items, setItems] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product, quantity: number = 1) => {
-    setCart(prev => {
-      const existingItem = prev.items.find(item => item.product.id === product.id);
-      
-      if (existingItem) {
-        const updatedItems = prev.items.map(item =>
-          item.product.id === product.id
+    setItems(current => {
+      const existing = current.find(item => item.id === product.id);
+      if (existing) {
+        return current.map(item =>
+          item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
-        const total = updatedItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-        return { items: updatedItems, total };
-      } else {
-        const newItems = [...prev.items, { product, quantity }];
-        const total = newItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-        return { items: newItems, total };
       }
+      return [...current, { ...product, quantity }];
     });
   };
 
   const removeFromCart = (productId: string) => {
-    setCart(prev => {
-      const newItems = prev.items.filter(item => item.product.id !== productId);
-      const total = newItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-      return { items: newItems, total };
-    });
+    setItems(current => current.filter(item => item.id !== productId));
   };
 
   const updateQuantity = (productId: string, quantity: number) => {
@@ -59,26 +43,35 @@ export function CartProvider({ children }: { children: ReactNode }) {
       removeFromCart(productId);
       return;
     }
-    
-    setCart(prev => {
-      const updatedItems = prev.items.map(item =>
-        item.product.id === productId
-          ? { ...item, quantity }
-          : item
-      );
-      const total = updatedItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-      return { items: updatedItems, total };
-    });
+    setItems(current =>
+      current.map(item =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
   };
 
   const clearCart = () => {
-    setCart({ items: [], total: 0 });
+    setItems([]);
   };
 
-  const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, itemCount }}>
+    <CartContext.Provider
+      value={{
+        items,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        totalItems,
+        totalPrice,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
