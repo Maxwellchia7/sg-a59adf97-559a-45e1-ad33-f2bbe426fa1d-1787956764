@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background z-10" />
       <img
-        src="/hero-watch.jpg"
+        src="/generated/hero-luxury-watch.png"
         alt="Luxury timepiece"
         className="absolute inset-0 w-full h-full object-cover"
       />
