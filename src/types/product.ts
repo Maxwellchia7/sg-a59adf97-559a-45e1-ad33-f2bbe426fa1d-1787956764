@@ -8,7 +8,7 @@ export interface Product {
   images: string[];
   description: string;
   category: "mens" | "womens" | "unisex";
-  condition: "like-new" | "excellent" | "very-good" | "good";
+  condition: "like-new" | "excellent" | "very-good" | "good" | "fair";
   year?: number;
   features: string[];
   inStock: boolean;
