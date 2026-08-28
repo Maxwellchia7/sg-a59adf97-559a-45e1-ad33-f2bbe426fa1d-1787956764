@@ -2,6 +2,45 @@ import type { Product } from "@/types/product";
 
 export const products: Product[] = [
   {
+    id: "rolex-gmt-master-ii-126710blro-2026",
+    name: "GMT-Master II Unworn 2026 / 126710BLRO - New style box",
+    brand: "Rolex",
+    reference: "126710BLRO",
+    price: 33940,
+    image: "https://img.chrono24.com/images/uhren/40929462-kuk7jmj81v20ua65hhe2u7pk-Square420.jpg",
+    images: [
+      "https://img.chrono24.com/images/uhren/40929462-kuk7jmj81v20ua65hhe2u7pk-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-o2cc2h92l0ge0epy3p6cyyra-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-im3sa28wf4eid1tusvxoyj4o-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-h1c88nt1p80f14tjut7l8uaz-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-lbspq1vw2pjuznm87dmn85bx-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-cfs0yasy8afh7hml0rkrxqne-Square420.jpg",
+      "https://img.chrono24.com/images/uhren/40929462-i8ksnqeqtpvykptgz4fk16vi-Square420.jpg"
+    ],
+    description: "The Rolex GMT-Master II Ref. 126710BLRO, known worldwide as the \"Pepsi,\" is one of the most iconic and sought-after Rolex sports watches ever produced. Instantly recognizable by its signature red and blue Cerachrom bezel, this outstanding 2026 model combines Rolex's legendary travel-watch heritage with the latest advancements in precision and performance. Paired with the elegant Jubilee bracelet, it offers the perfect balance of sportiness, comfort, and timeless style.\n\nPowered by the Rolex Caliber 3285 automatic movement, the watch delivers exceptional accuracy, reliability, and an approximate 70-hour power reserve. The 40mm Oystersteel case is fitted with a scratch-resistant sapphire crystal featuring the signature Cyclops date magnifier and is water-resistant to 100 meters. Its bidirectional 24-hour bezel and independently adjustable local hour hand allow effortless tracking of multiple time zones, making it the ideal companion for international travel.\n\nThis watch is 100% unworn and comes as a complete full set, including the original Rolex box, international warranty card dated 2026, instruction booklets, green Rolex card holder, green COSC hangtag, and the original white serial tag, if supplied by Rolex. The bracelet has never been sized, and in accordance with Rolex policy, all factory protective stickers were removed by the Authorized Dealer prior to the original sale.\n\nThe watch is in stock and ready for immediate shipment.",
+    category: "mens",
+    condition: "like-new",
+    year: 2026,
+    features: [
+      "Rolex Caliber 3285 automatic movement",
+      "40mm Oystersteel case",
+      "Red and blue Cerachrom 24-hour bezel (\"Pepsi\")",
+      "Black dial",
+      "Jubilee bracelet (never sized)",
+      "Scratch-resistant sapphire crystal with Cyclops magnifier",
+      "100m water resistance",
+      "Approximately 70-hour power reserve",
+      "GMT/second time zone function",
+      "Date display",
+      "Original Rolex box (new style)",
+      "International warranty card dated 2026",
+      "Complete full set with all documentation",
+      "100% unworn condition",
+      "In stock - ready for immediate shipment"
+    ],
+    inStock: true,
+  },
+  {
     id: "rolex-submariner-116610ln",
     name: "Submariner Date",
     brand: "Rolex",
