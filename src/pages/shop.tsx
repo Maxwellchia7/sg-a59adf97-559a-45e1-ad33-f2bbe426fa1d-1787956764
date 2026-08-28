@@ -24,7 +24,7 @@ export default function ShopPage() {
   const { currency, setCurrency, formatPrice } = useCurrency();
   const [showFilters, setShowFilters] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
+  const [priceRange, setPriceRange] = useState<string>("all");
   const [sortBy, setSortBy] = useState("featured");
 
   const brands = Array.from(new Set(products.map(p => p.brand)));
@@ -157,7 +157,7 @@ export default function ShopPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedProducts.map((product) => {
+                {filteredProducts.map((product) => {
                   const inWishlist = isInWishlist(product.id);
                   const inCompare = isInCompare(product.id);
                   
