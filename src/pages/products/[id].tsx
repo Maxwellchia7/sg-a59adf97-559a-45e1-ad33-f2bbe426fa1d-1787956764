@@ -8,10 +8,14 @@ import { ProxiedImage } from "@/components/ProxiedImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ShoppingBag, Heart, Share2, ChevronLeft, ChevronRight, Check, MessageCircle, Shield, Truck, RotateCcw } from "lucide-react";
+import { ShoppingBag, Heart, Share2, ChevronLeft, ChevronRight, Check, MessageCircle, Shield, Truck, RotateCcw, GitCompare } from "lucide-react";
 import { products, getProductById } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useCompare } from "@/contexts/CompareContext";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import { SEO } from "@/components/SEO";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import type { Product } from "@/types/product";
 import type { GetStaticProps, GetStaticPaths } from "next";
 
@@ -23,8 +27,14 @@ interface ProductPageProps {
 export default function ProductPage({ product, relatedProducts }: ProductPageProps) {
   const router = useRouter();
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCompare, removeFromCompare, isInCompare, compareCount } = useCompare();
+  const { formatPrice, currency, setCurrency } = useCurrency();
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(0);
+
+  const inWishlist = isInWishlist(product.id);
+  const inCompare = isInCompare(product.id);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -58,7 +68,7 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
               <div className="sticky top-24 space-y-4">
                 <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
                   <ProxiedImage
-                    src={product.images[selectedImage]}
+                    src={product.images[selectedImageIndex]}
                     alt={`${product.brand} ${product.name}`}
                     fill
                     className="object-contain"
@@ -68,13 +78,13 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                   {product.images.length > 1 && (
                     <>
                       <button
-                        onClick={() => setSelectedImage(selectedImage - 1)}
+                        onClick={() => setSelectedImageIndex(selectedImageIndex - 1)}
                         className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
                       >
                         <ChevronLeft className="h-6 w-6" />
                       </button>
                       <button
-                        onClick={() => setSelectedImage(selectedImage + 1)}
+                        onClick={() => setSelectedImageIndex(selectedImageIndex + 1)}
                         className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
                       >
                         <ChevronRight className="h-6 w-6" />
@@ -88,9 +98,9 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                     {product.images.map((img, idx) => (
                       <button
                         key={idx}
-                        onClick={() => setSelectedImage(idx)}
+                        onClick={() => setSelectedImageIndex(idx)}
                         className={`relative aspect-square bg-muted rounded overflow-hidden border-2 transition-all ${
-                          idx === selectedImage
+                          idx === selectedImageIndex
                             ? "border-primary"
                             : "border-transparent hover:border-border"
                         }`}
@@ -117,27 +127,37 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
                 <h1 className="text-4xl md:text-5xl font-serif font-light mb-4 text-foreground">
                   {product.name}
                 </h1>
-                <div className="flex items-center gap-3 mb-4">
-                  <Badge variant="outline" className="text-primary border-primary">
-                    {product.condition.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
-                  </Badge>
-                  {product.inStock && (
-                    <Badge variant="outline" className="text-green-500 border-green-500">
-                      <Check className="h-3 w-3 mr-1" />
-                      In Stock
-                    </Badge>
-                  )}
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-4xl font-light text-primary">{formatPrice(product.price)}</p>
+                  <Select value={currency} onValueChange={(value) => setCurrency(value as "USD" | "EUR" | "GBP")}>
+                    <SelectTrigger className="w-[100px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="USD">USD $</SelectItem>
+                      <SelectItem value="EUR">EUR €</SelectItem>
+                      <SelectItem value="GBP">GBP £</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
-                <p className="text-5xl font-light text-primary mb-6">
-                  ${product.price.toLocaleString()}
-                </p>
+
+                {product.condition && (
+                  <div className="flex items-center gap-2 mb-6">
+                    <Badge variant="secondary" className="capitalize">
+                      {product.condition.split("-").join(" ")}
+                    </Badge>
+                    {product.year && (
+                      <Badge variant="outline">{product.year}</Badge>
+                    )}
+                  </div>
+                )}
               </div>
 
               <Separator />
 
               <div>
                 <h2 className="text-lg font-semibold mb-3 text-foreground">Description</h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed mb-8">
                   {product.description}
                 </p>
               </div>
@@ -181,35 +201,45 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
               <Separator />
 
               {/* Actions */}
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <Button
-                    size="lg"
-                    onClick={handleAddToCart}
-                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    <ShoppingBag className="h-5 w-5 mr-2" />
-                    Add to Cart
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={handleBuyNow}
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    Buy Now
-                  </Button>
-                </div>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full hover:bg-accent/10"
-                  >
-                    <MessageCircle className="h-5 w-5 mr-2" />
-                    Inquire via WhatsApp
-                  </Button>
-                </a>
+              <div className="flex gap-3 mb-8">
+                <Button
+                  size="lg"
+                  className="flex-1"
+                  onClick={() => {
+                    addToCart(product, quantity);
+                    router.push("/cart");
+                  }}
+                >
+                  <ShoppingBag className="h-5 w-5 mr-2" />
+                  Add to Bag
+                </Button>
+                <Button
+                  size="lg"
+                  variant={inWishlist ? "default" : "outline"}
+                  onClick={() => {
+                    if (inWishlist) {
+                      removeFromWishlist(product.id);
+                    } else {
+                      addToWishlist(product);
+                    }
+                  }}
+                >
+                  <Heart className={`h-5 w-5 ${inWishlist ? "fill-current" : ""}`} />
+                </Button>
+                <Button
+                  size="lg"
+                  variant={inCompare ? "default" : "outline"}
+                  onClick={() => {
+                    if (inCompare) {
+                      removeFromCompare(product.id);
+                    } else if (compareCount < 4) {
+                      addToCompare(product);
+                    }
+                  }}
+                  disabled={!inCompare && compareCount >= 4}
+                >
+                  <GitCompare className={`h-5 w-5 ${inCompare ? "fill-current" : ""}`} />
+                </Button>
               </div>
 
               {/* Trust Badges */}

@@ -5,9 +5,12 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ProxiedImage } from "@/components/ProxiedImage";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Heart, GitCompare } from "lucide-react";
 import { products, getProductsByBrand } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
+import { useCompare } from "@/contexts/CompareContext";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import { SEO } from "@/components/SEO";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { Product } from "@/types/product";
@@ -48,6 +51,9 @@ const brandInfo: Record<string, { title: string; description: string; heritage: 
 export default function CollectionPage({ brand, brandProducts }: CollectionPageProps) {
   const router = useRouter();
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCompare, removeFromCompare, isInCompare, compareCount } = useCompare();
+  const { formatPrice } = useCurrency();
   const brandSlug = brand.toLowerCase().replace(/ /g, "-");
   const info = brandInfo[brandSlug] || {
     title: `${brand} Collection`,
@@ -119,58 +125,96 @@ export default function CollectionPage({ brand, brandProducts }: CollectionPageP
 
             {brandProducts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {brandProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
-                  >
-                    <Link href={`/products/${product.id}`}>
-                      <div className="relative aspect-square bg-muted overflow-hidden">
-                        <ProxiedImage
-                          src={product.image}
-                          alt={`${product.brand} ${product.name}`}
-                          fill
-                          className="object-contain transition-transform duration-500 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    </Link>
-                    <div className="p-6">
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                        {product.brand}
-                      </p>
+                {brandProducts.map((product) => {
+                  const inWishlist = isInWishlist(product.id);
+                  const inCompare = isInCompare(product.id);
+                  
+                  return (
+                    <div
+                      key={product.id}
+                      className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                    >
                       <Link href={`/products/${product.id}`}>
-                        <h3 className="text-xl font-serif font-light mb-3 text-foreground group-hover:text-primary transition-colors">
-                          {product.name}
-                        </h3>
+                        <div className="relative aspect-square bg-muted overflow-hidden">
+                          <ProxiedImage
+                            src={product.image}
+                            alt={`${product.brand} ${product.name}`}
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute top-3 right-3 flex gap-2">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (inWishlist) {
+                                  removeFromWishlist(product.id);
+                                } else {
+                                  addToWishlist(product);
+                                }
+                              }}
+                              className={`bg-background/80 backdrop-blur-sm p-2 rounded-full border border-border hover:bg-background transition-all ${
+                                inWishlist ? "text-red-500" : ""
+                              }`}
+                            >
+                              <Heart className={`h-5 w-5 ${inWishlist ? "fill-current" : ""}`} />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (inCompare) {
+                                  removeFromCompare(product.id);
+                                } else if (compareCount < 4) {
+                                  addToCompare(product);
+                                }
+                              }}
+                              className={`bg-background/80 backdrop-blur-sm p-2 rounded-full border border-border hover:bg-background transition-all ${
+                                inCompare ? "text-primary" : ""
+                              }`}
+                              disabled={!inCompare && compareCount >= 4}
+                            >
+                              <GitCompare className={`h-5 w-5 ${inCompare ? "fill-current" : ""}`} />
+                            </button>
+                          </div>
+                        </div>
                       </Link>
-                      <div className="flex items-center justify-between mb-3">
-                        <p className="text-2xl font-light text-primary">
-                          ${product.price.toLocaleString()}
+                      <div className="p-6">
+                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                          {product.brand}
                         </p>
-                        {product.year && (
-                          <span className="text-sm text-muted-foreground">
-                            {product.year}
-                          </span>
+                        <Link href={`/products/${product.id}`}>
+                          <h3 className="text-xl font-serif font-light mb-3 text-foreground group-hover:text-primary transition-colors">
+                            {product.name}
+                          </h3>
+                        </Link>
+                        <div className="flex items-center justify-between mb-3">
+                          <p className="text-2xl font-light text-primary">
+                            {formatPrice(product.price)}
+                          </p>
+                          {product.year && (
+                            <span className="text-sm text-muted-foreground">
+                              {product.year}
+                            </span>
+                          )}
+                        </div>
+                        {product.condition && (
+                          <p className="text-sm text-muted-foreground mb-3 capitalize">
+                            {product.condition.split("-").join(" ")}
+                          </p>
                         )}
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full"
+                          onClick={() => addToCart(product, 1)}
+                        >
+                          <ShoppingBag className="h-4 w-4 mr-2" />
+                          Add to bag
+                        </Button>
                       </div>
-                      {product.condition && (
-                        <p className="text-sm text-muted-foreground mb-3 capitalize">
-                          {product.condition.split("-").join(" ")}
-                        </p>
-                      )}
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full"
-                        onClick={() => addToCart(product, 1)}
-                      >
-                        <ShoppingBag className="h-4 w-4 mr-2" />
-                        Add to bag
-                      </Button>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-16">
