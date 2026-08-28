@@ -331,9 +331,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  // Get related products from the same brand
+  const relatedProducts = products
+    .filter(p => p.brand === product.brand && p.id !== product.id)
+    .slice(0, 4);
+
   return {
     props: {
       product,
+      relatedProducts,
     },
   };
 };
