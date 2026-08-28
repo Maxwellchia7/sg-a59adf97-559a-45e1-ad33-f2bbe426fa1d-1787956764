@@ -304,35 +304,36 @@ export default function ProductPage({ product, relatedProducts }: ProductPagePro
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = products.map(product => ({
+  const paths = products.map((product) => ({
     params: { id: product.id },
   }));
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<ProductPageProps> = async ({ params }) => {
-  const productId = params?.id as string;
-  const product = getProductById(productId);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.id as string;
+  
+  if (!id) {
+    return {
+      notFound: true,
+    };
+  }
 
+  const product = getProductById(id);
+  
   if (!product) {
     return {
       notFound: true,
     };
   }
 
-  const relatedProducts = products
-    .filter(p => p.brand === product.brand && p.id !== product.id)
-    .slice(0, 4);
-
   return {
     props: {
       product,
-      relatedProducts,
     },
-    revalidate: 60,
   };
 };
