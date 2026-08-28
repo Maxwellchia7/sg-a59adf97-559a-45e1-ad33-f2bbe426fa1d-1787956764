@@ -4,28 +4,28 @@ import { ArrowRight, Clock } from "lucide-react";
 
 const articles = [
   {
-    slug: "guide-to-rolex-submariner",
-    title: "The complete guide to Rolex Submariner collecting",
-    excerpt: "From vintage references to modern iterations, explore the evolution of the world's most iconic dive watch.",
-    image: "/magazine/submariner-guide.jpg",
-    category: "Guides",
-    readTime: "12 min read",
-  },
-  {
-    slug: "patek-philippe-investment",
-    title: "Why Patek Philippe watches hold their value",
-    excerpt: "Understanding the market dynamics that make certain complications and references investment-grade timepieces.",
-    image: "/magazine/patek-investment.jpg",
-    category: "Market insights",
+    id: 1,
+    title: "The Art of Complications",
+    excerpt: "Understanding the intricate mechanisms behind luxury timepieces",
+    image: "/magazine/editorial-1.png",
+    category: "Technical",
     readTime: "8 min read",
   },
   {
-    slug: "authentication-process",
-    title: "Inside our authentication laboratory",
-    excerpt: "See how our master watchmakers verify authenticity through microscopic examination and technical analysis.",
-    image: "/magazine/authentication.jpg",
-    category: "Behind the scenes",
-    readTime: "10 min read",
+    id: 2,
+    title: "Collector's Guide 2024",
+    excerpt: "Investment-grade watches that define this decade",
+    image: "/magazine/editorial-2.png",
+    category: "Market Insights",
+    readTime: "12 min read",
+  },
+  {
+    id: 3,
+    title: "Heritage & Innovation",
+    excerpt: "How traditional brands are embracing modern design",
+    image: "/complications/chronograph.png",
+    category: "Industry News",
+    readTime: "6 min read",
   },
 ];
 

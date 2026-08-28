@@ -3,37 +3,26 @@ import { Button } from "@/components/ui/button";
 
 export function BrandStory() {
   return (
-    <section className="py-24 bg-card">
+    <section className="py-24 bg-muted/30">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm text-primary mb-2 tracking-wider uppercase">The house</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-light text-accent mb-6">
-              Reserved from one desk
-            </h2>
-            <p className="text-lg text-accent/80 leading-relaxed mb-6">
-              Every timepiece passes through our atelier, where master watchmakers authenticate, 
-              service, and prepare each watch for its next custodian. This is not a marketplace — 
-              it's a curated collection reserved from one desk.
-            </p>
-            <p className="text-accent/70 leading-relaxed mb-8">
-              Our authentication process combines traditional horological expertise with modern 
-              technology. Every watch is backed by our 5-year warranty and comes with complete 
-              documentation of its journey through our atelier.
-            </p>
-            <Link href="/about">
-              <Button size="lg">Learn our story</Button>
-            </Link>
+            <img
+              src="/generated/story-watchmaker.png"
+              alt="Master watchmaker at work"
+              className="rounded-lg w-full h-auto"
+            />
           </div>
-
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-lg overflow-hidden">
-              <img
-                src="/about/watchmaker.jpg"
-                alt="Master watchmaker at work"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-foreground">
+              Crafted with passion, delivered with care
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              Every timepiece in our collection has been carefully selected and authenticated by our team of experts. We believe in transparency, quality, and the timeless art of fine watchmaking.
+            </p>
+            <p className="text-lg text-muted-foreground mb-8">
+              From Geneva to your wrist, we handle each watch with the respect it deserves, ensuring you receive not just a timepiece, but a piece of horological history.
+            </p>
           </div>
         </div>
       </div>

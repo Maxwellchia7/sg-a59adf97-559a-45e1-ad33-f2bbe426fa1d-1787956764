@@ -26,10 +26,10 @@ export default function AboutPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+              <div className="relative h-[500px] rounded-lg overflow-hidden">
                 <img
-                  src="/about/watchmaker.jpg"
-                  alt="Master watchmaker at work"
+                  src="/about/watchmaker.png"
+                  alt="Master watchmaker"
                   className="w-full h-full object-cover"
                 />
               </div>
