@@ -2,14 +2,14 @@ export interface Product {
   id: string;
   name: string;
   brand: string;
+  reference: string;
   price: number;
-  description: string;
   image: string;
   images: string[];
-  category: "mens" | "womens";
-  condition: "excellent" | "very-good" | "good";
+  description: string;
+  category: "mens" | "womens" | "unisex";
+  condition: "like-new" | "excellent" | "very-good" | "good";
   year?: number;
-  reference?: string;
   features: string[];
   inStock: boolean;
 }
