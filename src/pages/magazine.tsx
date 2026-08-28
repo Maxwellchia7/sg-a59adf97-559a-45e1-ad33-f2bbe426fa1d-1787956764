@@ -88,37 +88,39 @@ export default function MagazinePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/magazine/${article.slug}`}
-                className="group"
+              <div
+                key={article.id}
+                id={`article-${article.id}`}
+                className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                
-                <div className="flex items-center gap-2 text-xs text-primary mb-3">
-                  <span>{article.category}</span>
-                  <span>·</span>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    <span>{article.readTime}</span>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs text-primary uppercase tracking-wider">
+                      {article.category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">•</span>
+                    <span className="text-xs text-muted-foreground">{article.readTime}</span>
+                  </div>
+                  <h3 className="text-2xl font-serif font-light mb-3 text-foreground group-hover:text-primary transition-colors">
+                    {article.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">{article.excerpt}</p>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <span>{article.author}</span>
+                    <span>•</span>
+                    <span>{article.date}</span>
                   </div>
                 </div>
-
-                <h3 className="text-xl font-serif text-accent group-hover:text-primary transition-colors mb-3 leading-snug">
-                  {article.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {article.excerpt}
-                </p>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
