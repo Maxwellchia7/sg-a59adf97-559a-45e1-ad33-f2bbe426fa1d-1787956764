@@ -3,11 +3,12 @@ import { useRouter } from "next/router";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SEO } from "@/components/SEO";
+import { ProxiedImage } from "@/components/ProxiedImage";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import { products, getProductsByBrand } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
+import { SEO } from "@/components/SEO";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { Product } from "@/types/product";
 
@@ -118,16 +119,19 @@ export default function CollectionPage({ brand, brandProducts }: CollectionPageP
 
             {brandProducts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {brandProducts.map(product => (
+                {brandProducts.map((product) => (
                   <div
                     key={product.id}
                     className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                   >
                     <Link href={`/products/${product.id}`}>
-                      <div className="aspect-square bg-muted overflow-hidden">
-                        <div
-                          className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                          style={{ backgroundImage: `url('${product.image}')` }}
+                      <div className="relative aspect-square bg-muted overflow-hidden">
+                        <ProxiedImage
+                          src={product.image}
+                          alt={`${product.brand} ${product.name}`}
+                          fill
+                          className="object-contain transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
                     </Link>
@@ -140,20 +144,30 @@ export default function CollectionPage({ brand, brandProducts }: CollectionPageP
                           {product.name}
                         </h3>
                       </Link>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mb-3">
                         <p className="text-2xl font-light text-primary">
                           ${product.price.toLocaleString()}
                         </p>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleAddToCart(product.id)}
-                          className="hover:bg-primary hover:text-primary-foreground hover:border-primary"
-                        >
-                          <ShoppingBag className="h-4 w-4 mr-2" />
-                          Add
-                        </Button>
+                        {product.year && (
+                          <span className="text-sm text-muted-foreground">
+                            {product.year}
+                          </span>
+                        )}
                       </div>
+                      {product.condition && (
+                        <p className="text-sm text-muted-foreground mb-3 capitalize">
+                          {product.condition.split("-").join(" ")}
+                        </p>
+                      )}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full"
+                        onClick={() => addToCart(product, 1)}
+                      >
+                        <ShoppingBag className="h-4 w-4 mr-2" />
+                        Add to bag
+                      </Button>
                     </div>
                   </div>
                 ))}
