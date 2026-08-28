@@ -2,32 +2,71 @@ import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, Mail, MapPin } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle, MessageCircle } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `*Contact Form Inquiry*%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0A%0AMessage:%0A${formData.message}`;
-    window.open(`https://wa.me/16462440064?text=${encodeURIComponent(message)}`, "_blank");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value,
-    }));
+    });
   };
 
   return (
@@ -51,158 +90,189 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div className="bg-card border border-border rounded-lg p-8">
-                <h2 className="text-2xl font-serif font-light mb-6 text-foreground">
-                  Send Us a Message
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="mt-2"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="mt-2"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    <MessageCircle className="h-5 w-5 mr-2" />
-                    Send via WhatsApp
-                  </Button>
-                </form>
+              <div className="lg:col-span-7">
+                <div className="bg-card border border-border rounded-lg p-8">
+                  <h2 className="font-serif text-3xl mb-6">Send us a message</h2>
+
+                  {submitStatus === "success" && (
+                    <Alert className="mb-6 border-green-500/50 bg-green-500/10">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <AlertDescription className="text-green-500">
+                        Thank you for your message! We'll get back to you within 24 hours at {formData.email || "your email"}.
+                      </AlertDescription>
+                    </Alert>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <Alert className="mb-6 border-red-500/50 bg-red-500/10">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <AlertDescription className="text-red-500">
+                        {errorMessage}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="name">Full Name *</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          placeholder="John Smith"
+                          className="mt-2"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="john@example.com"
+                          className="mt-2"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="+1 (555) 000-0000"
+                          className="mt-2"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="subject">Subject</Label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          placeholder="Inquiry about Rolex GMT-Master II"
+                          className="mt-2"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="message">Message *</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        placeholder="Tell us about your inquiry..."
+                        className="mt-2"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>Processing...</>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+
+                    <p className="text-sm text-muted-foreground text-center">
+                      We typically respond within 24 hours during business days
+                    </p>
+                  </form>
+                </div>
               </div>
 
               {/* Contact Information */}
               <div className="space-y-8">
-                <div className="bg-card border border-border rounded-lg p-8">
-                  <h2 className="text-2xl font-serif font-light mb-6 text-foreground">
-                    Contact Information
-                  </h2>
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <MessageCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-semibold mb-1 text-foreground">WhatsApp</h3>
-                        <a
-                          href="https://wa.me/16462440064"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          +1 (646) 244-0064
-                        </a>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Preferred contact method
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-semibold mb-1 text-foreground">Email</h3>
-                        <a
-                          href="mailto:contact@maisoncaldor.com"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          contact@maisoncaldor.com
-                        </a>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          We respond within 24 hours
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-semibold mb-1 text-foreground">Location</h3>
-                        <p className="text-muted-foreground">
-                          Serving collectors worldwide
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Free worldwide shipping
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-muted/30 border border-border rounded-lg p-8">
-                  <h3 className="text-xl font-serif font-light mb-4 text-foreground">
-                    Business Hours
-                  </h3>
-                  <div className="space-y-2 text-muted-foreground">
-                    <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span>9:00 AM - 6:00 PM EST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span>10:00 AM - 4:00 PM EST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>Closed</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-                  <h3 className="font-semibold mb-2 text-foreground">
-                    Schedule a Private Consultation
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Speak directly with one of our watch specialists to discuss your specific requirements.
+                <div>
+                  <h3 className="font-serif text-2xl mb-4">Contact Information</h3>
+                  <p className="text-muted-foreground">
+                    Reach out to us through any of these channels. We're here to help you find your perfect timepiece.
                   </p>
-                  <a
-                    href="https://wa.me/16462440064?text=I'd like to schedule a consultation"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                      Book Consultation
-                    </Button>
-                  </a>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Mail className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium mb-1">Email</p>
+                      <a
+                        href="mailto:support@maisoncaldor.com"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        support@maisoncaldor.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Phone className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium mb-1">Phone / WhatsApp</p>
+                      <a
+                        href="https://wa.me/16462440064"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        +1 (646) 244-0064
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium mb-1">Headquarters</p>
+                      <p className="text-muted-foreground">
+                        New York, United States
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Clock className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium mb-1">Business Hours</p>
+                      <p className="text-muted-foreground">
+                        Monday - Friday: 9:00 AM - 6:00 PM EST
+                        <br />
+                        Saturday: 10:00 AM - 4:00 PM EST
+                        <br />
+                        Sunday: Closed
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
