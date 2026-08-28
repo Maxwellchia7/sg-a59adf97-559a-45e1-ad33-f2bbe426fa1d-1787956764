@@ -534,5 +534,12 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getProductsByBrand(brand: string): Product[] {
-  return products.filter(p => p.brand.toLowerCase() === brand.toLowerCase());
+  // Normalize the brand parameter (convert to lowercase and handle hyphens/spaces)
+  const normalizedBrand = brand.toLowerCase().replace(/-/g, " ");
+  
+  return products.filter(p => {
+    // Normalize the product brand name
+    const normalizedProductBrand = p.brand.toLowerCase().replace(/-/g, " ");
+    return normalizedProductBrand === normalizedBrand;
+  });
 }
