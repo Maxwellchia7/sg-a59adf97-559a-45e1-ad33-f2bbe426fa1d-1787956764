@@ -7,31 +7,31 @@ const brands = [
     name: "Rolex",
     slug: "rolex",
     description: "The crown of horology. Discover our collection of authenticated Rolex timepieces, from the iconic Submariner to the timeless Datejust. Each watch represents the pinnacle of Swiss watchmaking excellence.",
-    image: "/brands/rolex.jpg",
+    image: "/brands/rolex.png",
   },
   {
     name: "Patek Philippe",
     slug: "patek-philippe",
     description: "The art of watchmaking perfected. Explore rare and sought-after Patek Philippe pieces, including the legendary Nautilus and Calatrava collections. Investment-grade timepieces for the connoisseur.",
-    image: "/brands/patek-philippe.jpg",
+    image: "/brands/patek-philippe.png",
   },
   {
     name: "Audemars Piguet",
     slug: "audemars-piguet",
     description: "Avant-garde haute horlogerie. From the revolutionary Royal Oak to contemporary complications, each Audemars Piguet watch pushes the boundaries of traditional watchmaking.",
-    image: "/brands/audemars-piguet.jpg",
+    image: "/brands/audemars-piguet.png",
   },
   {
     name: "Omega",
     slug: "omega",
     description: "Precision with heritage. The Speedmaster Moonwatch, Seamaster diving legends, and more. Omega combines technical innovation with timeless design in every timepiece.",
-    image: "/brands/omega.jpg",
+    image: "/brands/omega.png",
   },
   {
     name: "Cartier",
     slug: "cartier",
     description: "Jeweler of kings, king of jewelers. Discover elegant dress watches including the Tank, Santos, and Ballon Bleu. Where haute joaillerie meets haute horlogerie.",
-    image: "/brands/cartier.jpg",
+    image: "/brands/cartier.png",
   },
 ];
 

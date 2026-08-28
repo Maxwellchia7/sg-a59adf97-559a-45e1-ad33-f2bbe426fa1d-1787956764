@@ -4,19 +4,19 @@ const complications = [
   {
     title: "Chronographs",
     description: "Racing heritage meets precision timing",
-    image: "/complications/chronograph.jpg",
+    image: "/complications/chronograph.png",
     href: "/collections?complication=chronograph",
   },
   {
     title: "Dive watches",
     description: "Professional instruments for the depths",
-    image: "/complications/dive.jpg",
+    image: "/complications/dive.png",
     href: "/collections?complication=dive",
   },
   {
     title: "Dress watches",
     description: "Refined elegance for formal occasions",
-    image: "/complications/dress.jpg",
+    image: "/complications/dress.png",
     href: "/collections?complication=dress",
   },
 ];

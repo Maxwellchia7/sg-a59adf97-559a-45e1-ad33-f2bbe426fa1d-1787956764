@@ -4,25 +4,25 @@ const categories = [
   {
     title: "Men's watches",
     description: "Classic and contemporary timepieces for gentlemen",
-    image: "/categories/mens.jpg",
+    image: "/categories/mens.png",
     href: "/collections?category=mens",
   },
   {
     title: "Women's watches",
     description: "Elegant complications and jeweled timepieces",
-    image: "/categories/womens.jpg",
+    image: "/categories/womens.png",
     href: "/collections?category=womens",
   },
   {
     title: "Pre-owned",
     description: "Authenticated vintage and discontinued models",
-    image: "/categories/pre-owned.jpg",
+    image: "/categories/pre-owned.png",
     href: "/collections?category=pre-owned",
   },
   {
     title: "Pocket watches",
     description: "Historic complications and collector's pieces",
-    image: "/categories/pocket.jpg",
+    image: "/categories/mens.png",
     href: "/collections?category=pocket",
   },
 ];
