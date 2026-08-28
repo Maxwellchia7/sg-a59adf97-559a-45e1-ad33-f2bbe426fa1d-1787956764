@@ -1,0 +1,17 @@
+# Robots.txt for Maison Caldor
+# Allow Google Ads and search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Allow all pages for crawling and advertising
+Allow: /shop
+Allow: /collections
+Allow: /products
+Allow: /about
+Allow: /contact
+Allow: /magazine
+Allow: /faq
+
+# Sitemap location
+Sitemap: https://maisoncaldor.com/sitemap.xml

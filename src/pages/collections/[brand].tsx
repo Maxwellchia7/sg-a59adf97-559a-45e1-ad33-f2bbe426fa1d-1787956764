@@ -238,27 +238,37 @@ export default function CollectionPage({ brand, brandProducts }: CollectionPageP
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const brands = Array.from(new Set(products.map(p => p.brand)));
-  const paths = brands.map(brand => ({
-    params: { brand: brand.toLowerCase().replace(/ /g, "-") },
-  }));
-
+  const brands = ["rolex", "patek-philippe", "audemars-piguet", "omega", "cartier"];
+  
   return {
-    paths,
-    fallback: true,
+    paths: brands.map(brand => ({
+      params: { brand }
+    })),
+    fallback: false
   };
 };
 
-export const getStaticProps: GetStaticProps<CollectionPageProps> = async ({ params }) => {
-  const brandSlug = params?.brand as string;
-  const brand = brandSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const brand = params?.brand as string;
+  
+  if (!brand) {
+    return {
+      notFound: true,
+    };
+  }
+
   const brandProducts = getProductsByBrand(brand);
+  
+  if (!brandProducts || brandProducts.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
       brand,
       brandProducts,
     },
-    revalidate: 60,
   };
 };
