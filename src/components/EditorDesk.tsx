@@ -52,7 +52,7 @@ export function EditorDesk() {
 
             <div className="flex items-center justify-between">
               <p className="text-3xl font-serif text-primary">$35,800</p>
-              <Link href="/products/rolex-daytona-116500ln">
+              <Link href="/products/rolex-daytona-steel">
                 <Button size="lg">
                   Reserve now
                   <ArrowRight className="ml-2 h-5 w-5" />

@@ -79,7 +79,7 @@ export function AccessibleLuxury() {
               Best deals
             </h2>
           </div>
-          <Link href="/best-deals">
+          <Link href="/shop">
             <Button variant="outline">View all deals</Button>
           </Link>
         </div>
