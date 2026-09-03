@@ -1,104 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag, Heart, GitCompare } from "lucide-react";
-import { ProxiedImage } from "./ProxiedImage";
+import { products } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
 import { useWishlist } from "@/contexts/WishlistContext";
 import { useCompare } from "@/contexts/CompareContext";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
-const newProducts = [
-  {
-    id: "new-1",
-    name: "Submariner Date",
-    brand: "Rolex",
-    price: 14500,
-    reference: "116610LN",
-    image: "/generated/product-rolex-sub.png",
-    description: "Pre-owned Rolex Submariner Date",
-    category: "mens" as const,
-    images: ["/generated/product-rolex-sub.png"],
-    condition: "excellent" as const,
-    year: 2019,
-    features: ["Automatic movement", "40mm case", "Ceramic bezel", "300m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "new-2",
-    name: "Royal Oak Chronograph",
-    brand: "Audemars Piguet",
-    price: 52000,
-    reference: "26331ST.OO.1220ST.03",
-    image: "/generated/product-ap-royaloak.png",
-    description: "Pre-owned Audemars Piguet Royal Oak Chronograph",
-    category: "mens" as const,
-    images: ["/generated/product-ap-royaloak.png"],
-    condition: "excellent" as const,
-    year: 2020,
-    features: ["Automatic movement", "41mm case", "Chronograph", "Iconic design"],
-    inStock: true,
-  },
-  {
-    id: "new-3",
-    name: "Aquanaut",
-    brand: "Patek Philippe",
-    price: 42000,
-    reference: "5167A-001",
-    image: "/generated/product-patek-aquanaut.png",
-    description: "Pre-owned Patek Philippe Aquanaut",
-    category: "mens" as const,
-    images: ["/generated/product-patek-aquanaut.png"],
-    condition: "excellent" as const,
-    year: 2021,
-    features: ["Automatic movement", "40mm case", "Composite strap", "120m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "new-4",
-    name: "Nautilus",
-    brand: "Patek Philippe",
-    price: 78000,
-    reference: "5711/1A-010",
-    image: "/generated/product-patek-nautilus.png",
-    description: "Pre-owned Patek Philippe Nautilus",
-    category: "mens" as const,
-    images: ["/generated/product-patek-nautilus.png"],
-    condition: "like-new" as const,
-    year: 2022,
-    features: ["Automatic movement", "40mm case", "Steel bracelet", "Iconic porthole design"],
-    inStock: true,
-  },
-  {
-    id: "new-5",
-    name: "Seamaster Diver 300M",
-    brand: "Omega",
-    price: 5800,
-    reference: "210.30.42.20.03.001",
-    image: "/generated/product-omega-seamaster.png",
-    description: "Pre-owned Omega Seamaster Diver 300M",
-    category: "mens" as const,
-    images: ["/generated/product-omega-seamaster.png"],
-    condition: "very-good" as const,
-    year: 2020,
-    features: ["Automatic movement", "42mm case", "Ceramic bezel", "300m water resistance"],
-    inStock: true,
-  },
-  {
-    id: "new-6",
-    name: "Tank Must",
-    brand: "Cartier",
-    price: 3200,
-    reference: "WSTA0041",
-    image: "/generated/product-cartier-tank.png",
-    description: "Pre-owned Cartier Tank Must",
-    category: "unisex" as const,
-    images: ["/generated/product-cartier-tank.png"],
-    condition: "excellent" as const,
-    year: 2021,
-    features: ["Quartz movement", "Rectangular case", "Leather strap", "Classic design"],
-    inStock: true,
-  },
-];
+// Use first 6 products from products.ts
+const newProducts = products.slice(0, 6);
 
 export function NewArrivals() {
   const { addToCart } = useCart();
