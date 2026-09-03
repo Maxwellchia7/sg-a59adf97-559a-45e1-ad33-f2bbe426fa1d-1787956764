@@ -6,28 +6,28 @@ const signatures = [
     brand: "Rolex",
     description: "The quintessential dress watch",
     image: "/complications/dress.png",
-    href: "/collections/rolex?model=datejust",
+    href: "/collections/rolex",
   },
   {
     name: "Submariner",
     brand: "Rolex",
     description: "Dive watch icon since 1953",
     image: "/complications/dive.png",
-    href: "/collections/rolex?model=submariner",
+    href: "/collections/rolex",
   },
   {
     name: "Daytona",
     brand: "Rolex",
     description: "Racing chronograph legend",
     image: "/complications/chronograph.png",
-    href: "/collections/rolex?model=daytona",
+    href: "/collections/rolex",
   },
   {
     name: "Nautilus",
     brand: "Patek Philippe",
     description: "Sports elegance redefined",
     image: "/brands/patek-philippe.png",
-    href: "/collections/patek-philippe?model=nautilus",
+    href: "/collections/patek-philippe",
   },
 ];
 

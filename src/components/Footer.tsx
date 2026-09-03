@@ -3,30 +3,24 @@ import { MessageCircle, Instagram, Facebook, Twitter } from "lucide-react";
 import Image from "next/image";
 
 const buyLinks = [
-  { label: "Men's Watches", href: "/collections/mens" },
-  { label: "Women's Watches", href: "/collections/womens" },
-  { label: "Pre-owned Watches", href: "/collections/pre-owned" },
-  { label: "Pocket Watches", href: "/collections/pocket" },
+  { label: "Men's Watches", href: "/shop" },
+  { label: "Women's Watches", href: "/shop" },
+  { label: "Pre-owned Watches", href: "/shop" },
+  { label: "Pocket Watches", href: "/shop" },
   { label: "Watch Brands", href: "/collections" },
-  { label: "Best Deals", href: "/best-deals" },
-  { label: "New Arrivals", href: "/new-arrivals" },
+  { label: "All Watches", href: "/shop" },
+  { label: "New Arrivals", href: "/shop" },
 ];
 
 const houseLinks = [
   { label: "About Maison Caldor", href: "/about" },
   { label: "Magazine", href: "/magazine" },
-  { label: "News", href: "/news" },
-  { label: "Reviews", href: "/reviews" },
-  { label: "Private Clients", href: "/private-clients" },
-  { label: "The Salon", href: "/salon" },
-  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 const helpLinks = [
   { label: "FAQ", href: "/faq" },
-  { label: "Services", href: "/services" },
-  { label: "Certificate of Authenticity", href: "/certificate" },
-  { label: "Buying Guide", href: "/buying-guide" },
   { label: "Shipping & Returns", href: "/shipping" },
   { label: "Contact Us", href: "/contact" },
   { label: "WhatsApp Support", href: "https://wa.me/16462440064", external: true },
